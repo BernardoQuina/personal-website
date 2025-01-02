@@ -1,0 +1,19 @@
+# dependencies
+**/node_modules
+
+# next
+.next
+out
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# local env
+**/.env
+**/.env.*
+!**/.env.example
+
+# IDE
+.vscode
+
+# Annoying macOS files
+.DS_Store

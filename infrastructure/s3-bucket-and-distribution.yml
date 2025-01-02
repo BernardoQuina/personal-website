@@ -1,0 +1,153 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Personal website deployment stack - S3 and CloudFront
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Name of the S3 bucket to create
+  DomainName:
+    Type: String
+    Description: Domain name for the CloudFront distribution
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Description: The ID of the hosted zone in Route 53
+  CertificateArn:
+    Type: String
+    Description: ARN of the manually created ACM certificate (must be in us-east-1 for CloudFront)
+
+Resources:
+  # S3 bucket (static website hosting)
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      # This block ensures the bucket is not publicly accessible
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      # Enables server-side encryption for the bucket
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      # Static website config
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: 404.html
+
+  # CloudFront Origin Access Identity (OAI)
+  # This is used to allow CloudFront to access the private S3 bucket
+  CloudFrontOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub 'OAI for ${BucketName}'
+
+  # Bucket policy that allows the CloudFront OAI to read from the bucket
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOriginAccessIdentity}'
+            Action: 's3:GetObject'
+            Resource: !Sub '${WebsiteBucket.Arn}/*'
+
+  # CloudFront distribution
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Ref DomainName
+        DefaultRootObject: index.html # Sets the default page
+        Enabled: true
+        HttpVersion: http2 # Uses HTTP/2 for better performance
+        DefaultCacheBehavior:
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt CloudFrontFunction.FunctionARN
+          AllowedMethods: # Specifies which HTTP methods CloudFront processes and forwards
+            - GET
+            - HEAD
+            - OPTIONS
+          Compress: true # Enables CloudFront compression
+          DefaultTTL: 86400 # Default time-to-live for files in seconds (24 hours)
+          ForwardedValues:
+            QueryString: false # Doesn't forward query strings to origin
+          MaxTTL: 31536000 # Maximum time-to-live for files in seconds (1 year)
+          MinTTL: 0 # Minimum time-to-live for files in seconds
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https # Redirects HTTP to HTTPS
+        Origins:
+          - DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+            Id: S3Origin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}'
+        PriceClass: PriceClass_100 # Uses only US, Canada, Europe, & Israel edges (cheapest option)
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+
+  # CloudFront Function to handle SPA routing
+  CloudFrontFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: SPA-routing
+      AutoPublish: true
+      FunctionCode: |
+        function handler(event) {
+            const request = event.request;
+            const uri = request.uri;
+
+            // Check if the URI is a dynamic path (e.g., /posts/something or /articles/something)
+            if (uri !== '' && uri !== '/' && uri.indexOf('.') === -1) {
+                const dynamicPathMatch = uri.match(/^(\/[^/]+\/)[^/]+$/);
+
+                if (dynamicPathMatch) {
+                    // Rewrite to /path/[id].html (e.g., /posts/[id].html or /articles/[id].html)
+                    request.uri = dynamicPathMatch[1] + '[id].html';
+                } else {
+                    // For all other non-dynamic paths, append .html
+                    request.uri = uri + '.html';
+                }
+            }
+
+            return request;
+        }
+      FunctionConfig:
+        Comment: Handles SPA routing for CloudFront
+        Runtime: cloudfront-js-2.0
+
+  DNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2 # This is a fixed value for CloudFront distributions
+
+Outputs:
+  BucketName:
+    Description: Name of S3 bucket to hold website content
+    Value: !Ref WebsiteBucket
+  CloudFrontDistributionId:
+    Description: ID of CloudFront distribution
+    Value: !Ref CloudFrontDistribution
+  CloudFrontDomainName:
+    Description: Domain name of CloudFront distribution
+    Value: !GetAtt CloudFrontDistribution.DomainName
+  WebsiteURL:
+    Description: URL of the website
+    Value: !Sub https://${DomainName}
+    Export:
+      Name: !Sub ${AWS::StackName}-WebsiteURL

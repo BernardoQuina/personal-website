@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Personal website deployment stack - S3 and CloudFront
 
 Parameters:
-  BucketName:
+  S3BucketName:
     Type: String
     Description: Name of the S3 bucket to create
   DomainName:
@@ -20,7 +20,7 @@ Resources:
   WebsiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref BucketName
+      BucketName: !Ref S3BucketName
       # This block ensures the bucket is not publicly accessible
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
@@ -43,7 +43,7 @@ Resources:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
-        Comment: !Sub 'OAI for ${BucketName}'
+        Comment: !Sub 'OAI for ${S3BucketName}'
 
   # Bucket policy that allows the CloudFront OAI to read from the bucket
   BucketPolicy:
@@ -137,7 +137,7 @@ Resources:
         HostedZoneId: Z2FDTNDATAQYW2 # This is a fixed value for CloudFront distributions
 
 Outputs:
-  BucketName:
+  S3BucketName:
     Description: Name of S3 bucket to hold website content
     Value: !Ref WebsiteBucket
   CloudFrontDistributionId:

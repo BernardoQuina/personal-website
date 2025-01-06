@@ -1,4 +1,4 @@
-import { Globe, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 
 import { Aws } from './icons/aws';
 import { Linkedin } from './icons/linkedin';
@@ -20,47 +20,34 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="items-center gap-4 self-start">
+          <div className="items-center gap-4 self-start px-6 sm:px-0">
             <span className="text-sm font-medium text-muted-foreground">
               Find me at
             </span>
-            <div className="gap-4 xs:flex-row">
-              <div className="flex-row gap-4">
-                <a
-                  className="h-fit w-fit"
-                  href="https://bernardoquina.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Globe className="h-5 w-5" />
-                </a>
-
-                <a
-                  href="https://www.github.com/BernardoQuina/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-              </div>
-              <div className="flex-row gap-4">
-                <a
-                  className="h-fit w-fit"
-                  href="https://www.linkedin.com/in/bernardo-quina/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a
-                  className="h-fit w-fit"
-                  href="https://www.x.com/bernardoquina/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <X className="h-5 w-5" />
-                </a>
-              </div>
+            <div className="flex-row gap-4">
+              <a
+                href="https://www.github.com/BernardoQuina/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                className="h-fit w-fit"
+                href="https://www.linkedin.com/in/bernardo-quina/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                className="h-fit w-fit"
+                href="https://www.x.com/bernardoquina/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <X className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>

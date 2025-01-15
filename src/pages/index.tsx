@@ -54,7 +54,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-[220px]">
-            <span className="text-sm font-medium">Hey 👋 , I&apos;m</span>
+            <span className="text-sm font-medium">Hey there 👋 , I&apos;m</span>
             <h2 className="text-3xl font-medium">Bernardo Quina</h2>
             <button className="self-end pt-1">
               <h1 className="text-sm font-medium">
@@ -66,7 +66,7 @@ export default function Home() {
             <span className="text-[10px] font-bold tracking-[0.2rem] text-gray-400 dark:text-gray-700">
               SCROLL
             </span>
-            <div className="h-[20vh] w-[0.75px] bg-gray-300 dark:bg-gray-800"></div>
+            <div className="h-[30vh] w-[0.75px] bg-gray-300 dark:bg-gray-800 sm:h-[20vh]"></div>
           </div>
         </div>
       </div>

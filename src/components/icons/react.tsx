@@ -9,7 +9,7 @@ export function React({ className }: Props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 128 128"
-      className={cn('h-10 w-10', className)}
+      className={cn('h-8 w-8', className)}
     >
       <g fill="#61DAFB">
         <circle cx="64" cy="64" r="11.4" />

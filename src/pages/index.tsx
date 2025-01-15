@@ -10,45 +10,29 @@ import { React } from '../components/icons/react';
 export default function Home() {
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
-      <div className="min-h-[calc(100vh-4.5rem)] items-center justify-center">
-        <div className="items-center">
-          <div className="relative">
-            <OrbiterEffect>
-              <Aws />
+      <div className="items-center justify-center">
+        <div className="min-h-[calc(100vh-3.5rem)] items-center justify-center">
+          <div className="relative mt-auto">
+            <OrbiterEffect initialPosition={90} rotate={45}>
+              <Aws className="-rotate-45" />
             </OrbiterEffect>
-            <div className="mt-[-300px]">
-              <OrbiterEffect
-                initialPosition={90}
-                reverse
-                rotate={45}
-                semiMajorAxis={190}
-              >
-                <div className="rotate-45">
-                  <NodeJS className="[transform:rotateY(180deg)]" />
-                </div>
-              </OrbiterEffect>
-            </div>
-            <div className="mt-[-300px]">
-              <OrbiterEffect
-                initialPosition={180}
-                rotate={90}
-                semiMajorAxis={140}
-              >
-                <React className="-rotate-90" />
-              </OrbiterEffect>
-            </div>
-            <div className="mt-[-300px]">
-              <OrbiterEffect
-                rotate={135}
-                reverse
-                initialPosition={270}
-                semiMajorAxis={190}
-              >
-                <div className="rotate-[135deg]">
-                  <K8s className="[transform:rotateY(180deg)]" />
-                </div>
-              </OrbiterEffect>
-            </div>
+            <OrbiterEffect
+              className="mt-[-300px]"
+              initialPosition={270}
+              rotate={45}
+            >
+              <K8s className="-rotate-45" />
+            </OrbiterEffect>
+            <OrbiterEffect className="mt-[-300px]" rotate={135}>
+              <NodeJS className="rotate-[-135deg]" />
+            </OrbiterEffect>
+            <OrbiterEffect
+              className="mt-[-300px]"
+              rotate={135}
+              initialPosition={180}
+            >
+              <React className="rotate-[-135deg]" />
+            </OrbiterEffect>
             <div
               className="absolute left-[50%] top-[50%] -z-10 h-[300px] w-[300px] translate-x-[-52%] translate-y-[-50%] transform rounded-full bg-orange-600 blur-xl"
               style={{
@@ -60,8 +44,6 @@ export default function Home() {
             <div className="absolute left-[50%] top-[50%] z-0 h-[220px] w-[220px] translate-x-[-50%] translate-y-[-50%] transform">
               <div className="overflow-hidden rounded-2xl border border-orange-300/50 bg-orange-200/70 shadow-lg backdrop-blur-[2px] supports-[backdrop-filter]:bg-orange-200/70">
                 <Image
-                  // className="image-gradient"
-                  // className="pl-2"
                   src="/images/profile-picture.png"
                   alt="Bernardo Quina's profile picture"
                   height={220}
@@ -79,6 +61,12 @@ export default function Home() {
                 {'<FullStackDeveloper />'}
               </h1>
             </button>
+          </div>
+          <div className="mt-auto items-center gap-2">
+            <span className="text-[10px] font-bold tracking-[0.2rem] text-gray-400 dark:text-gray-700">
+              SCROLL
+            </span>
+            <div className="h-[20vh] w-[0.75px] bg-gray-300 dark:bg-gray-800"></div>
           </div>
         </div>
       </div>

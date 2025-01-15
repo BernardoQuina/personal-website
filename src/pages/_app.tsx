@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import AnimatedCursor from 'react-animated-cursor';
+// import AnimatedCursor from 'react-animated-cursor';
 
 import { ThemeProvider } from '../components/theme-provider';
 
@@ -13,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       defaultTheme="system"
     >
       <Component {...pageProps} />
-      <AnimatedCursor
+      {/* <AnimatedCursor
         clickables={['a', 'button', '.menu-item']}
         color="255,255,255"
         innerSize={8}
@@ -23,7 +23,7 @@ function App({ Component, pageProps }: AppProps) {
         outerAlpha={1}
         outerStyle={{ mixBlendMode: 'exclusion' }}
         innerStyle={{ mixBlendMode: 'exclusion' }}
-      />
+      /> */}
     </ThemeProvider>
   );
 }

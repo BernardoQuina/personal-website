@@ -9,7 +9,7 @@ export function NodeJS({ className }: Props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 128 128"
-      className={cn('h-10 w-10', className)}
+      className={cn('h-8 w-8', className)}
     >
       <path
         fill="#5FA04E"

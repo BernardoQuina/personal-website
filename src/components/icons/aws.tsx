@@ -12,7 +12,7 @@ export function Aws({ className }: Props) {
       height="800px"
       viewBox="0 0 16 16"
       fill="none"
-      className={cn('h-10 w-10', className)}
+      className={cn('h-8 w-8', className)}
     >
       <path
         className="fill-[#252F3E] dark:fill-white"

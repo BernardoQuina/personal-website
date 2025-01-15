@@ -179,7 +179,7 @@ export function OrbiterEffect({
   children,
   rotate = 0,
   reverse,
-  semiMajorAxis = 150,
+  semiMajorAxis = 190,
   semiMinorAxis = 30,
   duration = 7,
 }: {

@@ -21,13 +21,11 @@ export default function Home() {
     [initialY, initialY - 200],
   );
 
-  const developerScale = useTransform(scrollYProgress, [0, 0.1], [1, 2]);
+  const developerScale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
-      {/* <motion.div className="fixed top-20">{scrollY}</motion.div> */}
       {/* <motion.div className="fixed top-24">{scrollYProgress}</motion.div> */}
-
       <motion.div
         className="fixed left-[50%] items-center"
         style={{ opacity: profileOpacity, x: '-50%', y: profileY }}
@@ -89,9 +87,9 @@ export default function Home() {
       </motion.div>
       <motion.button
         className="fixed left-[50%] top-[27.5rem]"
-        style={{ scale: developerScale, x: -45, y: initialY - 80 }}
+        style={{ scale: developerScale, x: -100, y: initialY - 85 }}
       >
-        <h1 className="text-sm font-medium">
+        <h1 className="text-2xl font-medium">
           <span className="text-gray-400">{'<'}</span>
           FullStackDeveloper
           <span className="text-gray-400">{' />'}</span>

@@ -9,6 +9,7 @@ import { K8s } from '../components/icons/k8s';
 import { React } from '../components/icons/react';
 
 const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
 const initialY = windowHeight / 2 - 250;
 
 export default function Home() {
@@ -18,10 +19,26 @@ export default function Home() {
   const profileY = useTransform(
     scrollYProgress,
     [0, 0.1],
-    [initialY, initialY - 200],
+    [initialY, initialY - 400],
   );
 
+  const developerWidth = 256; // 16rem
+  const developerInitialOffset = 30;
   const developerScale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
+  const developerX = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    [
+      windowWidth / 2 - developerWidth / 2 + developerInitialOffset,
+      windowWidth / 2 - developerWidth / 2 - 20,
+    ],
+  );
+
+  const developerY = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    [windowHeight / 2 + 105, windowHeight / 2 - 200],
+  );
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
@@ -85,16 +102,17 @@ export default function Home() {
         </span>
         <div className="h-[15vh] w-[0.75px] bg-gray-300 dark:bg-gray-700 sm:h-[20vh]" />
       </motion.div>
-      <motion.button
-        className="fixed left-[50%] top-[27.5rem]"
-        style={{ scale: developerScale, x: -100, y: initialY - 85 }}
+      <motion.a
+        href="#snap-2"
+        className="fixed"
+        style={{ scale: developerScale, x: developerX, y: developerY }}
       >
-        <h1 className="text-2xl font-medium">
+        <h1 className="min-w-[16rem] text-2xl font-medium">
           <span className="text-gray-400">{'<'}</span>
           FullStackDeveloper
           <span className="text-gray-400">{' />'}</span>
         </h1>
-      </motion.button>
+      </motion.a>
       <section className="snap-point" id="snap-1" />
       <section className="snap-point" id="snap-2" />
       <section className="snap-point bg-green-500" id="snap-3" />

@@ -85,7 +85,7 @@ export default function Home() {
         <span className="text-[10px] font-bold tracking-[0.2rem] text-gray-400 dark:text-gray-600">
           SCROLL
         </span>
-        <div className="h-[30vh] w-[0.75px] bg-gray-300 dark:bg-gray-700 sm:h-[20vh]" />
+        <div className="h-[20vh] w-[0.75px] bg-gray-300 dark:bg-gray-700" />
       </motion.div>
       <motion.button
         className="fixed left-[50%] top-[27.5rem]"

@@ -142,9 +142,16 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
+
   /* Apply flexbox column layout to common container elements */
   div,
   section,
@@ -160,6 +167,12 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box; /* Helps with sizing consistency */
+  }
+
+  .snap-point {
+    height: 100vh;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 }
 

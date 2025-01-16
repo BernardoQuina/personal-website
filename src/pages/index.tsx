@@ -8,19 +8,28 @@ import { NodeJS } from '../components/icons/nodeJS';
 import { K8s } from '../components/icons/k8s';
 import { React } from '../components/icons/react';
 
+const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+const initialY = windowHeight / 2 - 350;
+
 export default function Home() {
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
 
-  const developerScale = useTransform(scrollY, [0, 200], [1, 2]);
+  const profileOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const profileY = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    [initialY, initialY - 200],
+  );
 
-  const profileOpacity = useTransform(scrollY, [0, 200], [1, 0]);
-  const profileY = useTransform(scrollY, [0, 200], [0, -200]);
+  const developerScale = useTransform(scrollYProgress, [0, 0.1], [1, 2]);
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
-      <motion.div className="fixed">{scrollY}</motion.div>
+      <motion.div className="fixed top-20">{scrollY}</motion.div>
+      <motion.div className="fixed top-24">{scrollYProgress}</motion.div>
+
       <motion.div
-        className="fixed left-[50%] top-20 items-center"
+        className="fixed left-[50%] items-center"
         style={{ opacity: profileOpacity, x: '-50%', y: profileY }}
       >
         <div className="relative">
@@ -80,7 +89,7 @@ export default function Home() {
       </motion.div>
       <motion.button
         className="fixed left-[50%] top-[27.5rem]"
-        style={{ scale: developerScale, x: -45 }}
+        style={{ scale: developerScale, x: -45, y: initialY - 80 }}
       >
         <h1 className="text-sm font-medium">
           <span className="text-gray-400">{'<'}</span>
@@ -88,7 +97,18 @@ export default function Home() {
           <span className="text-gray-400">{' />'}</span>
         </h1>
       </motion.button>
-      <div className="h-[5000vh]" />
+      <section className="snap-point" id="snap-1" />
+      <section className="snap-point" id="snap-2" />
+      <section className="snap-point bg-green-500" id="snap-3" />
+      <section className="snap-point bg-yellow-500" id="snap-4" />
+      <section className="snap-point bg-purple-500" id="snap-5" />
+      <section className="snap-point bg-red-500" id="snap-6" />
+      <section className="snap-point bg-blue-500" id="snap-7" />
+      <section className="snap-point bg-green-500" id="snap-8" />
+      <section className="snap-point bg-yellow-500" id="snap-9" />
+      <section className="snap-point bg-purple-500" id="snap-10" />
+      <section className="snap-point bg-red-500" id="snap-11" />
+      {/* <div className="h-[5000vh]" /> */}
     </PageLayout>
   );
 }

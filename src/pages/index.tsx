@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
       {/* <motion.div className="fixed top-20">{scrollY}</motion.div> */}
-      {/* <motion.div className="fixed top-24">{scrollYProgress}</motion.div> */}
+      <motion.div className="fixed top-24">{scrollYProgress}</motion.div>
 
       <motion.div
         className="fixed left-[50%] items-center"
@@ -97,9 +97,7 @@ export default function Home() {
           <span className="text-gray-400">{' />'}</span>
         </h1>
       </motion.button>
-      <section className="snap-point pt-14" id="snap-1">
-        <span>hello</span>
-      </section>
+      <section className="snap-point" id="snap-1" />
       <section className="snap-point" id="snap-2" />
       <section className="snap-point bg-green-500" id="snap-3" />
       <section className="snap-point bg-yellow-500" id="snap-4" />

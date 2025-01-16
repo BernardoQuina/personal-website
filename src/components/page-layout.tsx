@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import Head from 'next/head';
 
-import { Header } from './header';
+// import { Header } from './header';
 // import { Footer } from './footer';
 
 export function PageLayout({
@@ -19,7 +19,7 @@ export function PageLayout({
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
-      <Header />
+      {/* <Header /> */}
       <main>{children}</main>
       {/* <Footer /> */}
     </div>

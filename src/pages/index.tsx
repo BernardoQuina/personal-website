@@ -9,7 +9,7 @@ import { K8s } from '../components/icons/k8s';
 import { React } from '../components/icons/react';
 
 const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
-const initialY = windowHeight / 2 - 275;
+const initialY = windowHeight / 2 - 250;
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -85,7 +85,7 @@ export default function Home() {
         <span className="text-[10px] font-bold tracking-[0.2rem] text-gray-400 dark:text-gray-600">
           SCROLL
         </span>
-        <div className="h-[20dvh] w-[0.75px] bg-gray-300 dark:bg-gray-700" />
+        <div className="h-[15vh] w-[0.75px] bg-gray-300 dark:bg-gray-700 sm:h-[20vh]" />
       </motion.div>
       <motion.button
         className="fixed left-[50%] top-[27.5rem]"

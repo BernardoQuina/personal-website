@@ -9,7 +9,7 @@ import { K8s } from '../components/icons/k8s';
 import { React } from '../components/icons/react';
 
 const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
-const initialY = windowHeight / 2 - 350;
+const initialY = windowHeight / 2 - 300;
 
 export default function Home() {
   const { scrollY, scrollYProgress } = useScroll();

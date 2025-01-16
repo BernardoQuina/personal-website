@@ -12,7 +12,7 @@ const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 const initialY = windowHeight / 2 - 300;
 
 export default function Home() {
-  const { scrollY, scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll();
 
   const profileOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
   const profileY = useTransform(
@@ -25,8 +25,8 @@ export default function Home() {
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
-      <motion.div className="fixed top-20">{scrollY}</motion.div>
-      <motion.div className="fixed top-24">{scrollYProgress}</motion.div>
+      {/* <motion.div className="fixed top-20">{scrollY}</motion.div> */}
+      {/* <motion.div className="fixed top-24">{scrollYProgress}</motion.div> */}
 
       <motion.div
         className="fixed left-[50%] items-center"

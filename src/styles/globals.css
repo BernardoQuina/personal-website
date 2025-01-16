@@ -170,7 +170,7 @@
   }
 
   .snap-point {
-    height: 100svh;
+    height: 100vh;
     scroll-snap-align: center;
     scroll-snap-stop: always;
   }

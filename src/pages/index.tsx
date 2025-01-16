@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
       {/* <motion.div className="fixed top-20">{scrollY}</motion.div> */}
-      <motion.div className="fixed top-24">{scrollYProgress}</motion.div>
+      {/* <motion.div className="fixed top-24">{scrollYProgress}</motion.div> */}
 
       <motion.div
         className="fixed left-[50%] items-center"

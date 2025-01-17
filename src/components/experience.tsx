@@ -4,22 +4,24 @@ type Props = {
   scrollYProgress: MotionValue<number>;
 };
 
-export function DevTag({ scrollYProgress }: Props) {
+export function ExperienceTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [28, -20]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [90, -200]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [17, -44]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [125, -130]);
 
-  const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
-  const closingBracketX = useTransform(scrollYProgress, [0, 0.1], [0, -14]);
+  const dashOpacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
+  const closingBracketX = useTransform(scrollYProgress, [0.2, 0.3], [0, -14]);
 
-  const lineGuideHeight = useTransform(scrollYProgress, [0, 0.1], [0, 370]);
+  const lineGuideHeight = useTransform(scrollYProgress, [0.2, 0.3], [0, 300]);
+
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#snap-2" style={{ scale, x, y }}>
-        <h1 className="min-w-[16rem] text-2xl font-medium">
+      <motion.a href="#snap-3" style={{ scale, x, y, opacity }}>
+        <h3 className="min-w-[10.5rem] text-2xl font-medium">
           <span className="text-orange-400">{'<'}</span>
-          FullStackDeveloper
+          Experience
           <motion.span
             className="text-orange-400"
             style={{ opacity: dashOpacity }}
@@ -33,7 +35,7 @@ export function DevTag({ scrollYProgress }: Props) {
           >
             {'>'}
           </motion.span>
-        </h1>
+        </h3>
         <motion.div
           className="absolute left-1 top-8 bg-gray-300 dark:bg-gray-700"
           style={{ width: 1, height: lineGuideHeight }}
@@ -43,19 +45,17 @@ export function DevTag({ scrollYProgress }: Props) {
   );
 }
 
-export function DevClosingTag({ scrollYProgress }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [28, -20]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [105, 200]);
+export function ExperienceClosingTag({ scrollYProgress }: Props) {
+  const y = useTransform(scrollYProgress, [0.2, 0.3], [-165, 166]);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#snap-2" style={{ scale, x, y, opacity }}>
-        <span className="min-w-[16rem] text-2xl font-medium">
+      <motion.a href="#snap-3" style={{ x: -44, y, opacity }}>
+        <span className="min-w-[10.5rem] text-2xl font-medium">
           <span className="text-orange-400">{'</'}</span>
-          FullStackDeveloper
+          Experience
           <span className="text-orange-400">{'>'}</span>
         </span>
       </motion.a>

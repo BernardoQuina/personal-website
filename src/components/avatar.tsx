@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function Avatar({ scrollYProgress }: Props) {
-  const y = useTransform(scrollYProgress, [0, 0.1], [-100, -500]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [-50, -500]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   return (

@@ -7,7 +7,7 @@ type Props = {
 export function AboutMeTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
   const x = useTransform(scrollYProgress, [0, 0.1], [0, -55]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [125, -165]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [150, -165]);
 
   const dashOpacity = useTransform(scrollYProgress, [0.1, 0.15], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0.1, 0.2], [0, -14]);

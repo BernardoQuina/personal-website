@@ -7,7 +7,7 @@ type Props = {
 export function DevTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
   const x = useTransform(scrollYProgress, [0, 0.1], [28, -20]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [90, -200]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [138, -200]);
 
   const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0, 0.1], [0, -14]);
@@ -46,7 +46,7 @@ export function DevTag({ scrollYProgress }: Props) {
 export function DevClosingTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
   const x = useTransform(scrollYProgress, [0, 0.1], [28, -20]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [105, 200]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [155, 200]);
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 

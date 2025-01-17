@@ -7,7 +7,7 @@ type Props = {
 export function ExperienceTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
   const x = useTransform(scrollYProgress, [0, 0.1], [17, -44]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [125, -130]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [155, -130]);
 
   const dashOpacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0.2, 0.3], [0, -14]);

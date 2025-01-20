@@ -4,15 +4,15 @@ type Props = {
   scrollYProgress: MotionValue<number>;
 };
 
-export function ExperienceTag({ scrollYProgress }: Props) {
+export function CertificatesTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [17, -28]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [155, -18]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [17, -26.5]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [165, 54]);
 
-  const dashOpacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
-  const closingBracketX = useTransform(scrollYProgress, [0.2, 0.3], [0, -14]);
+  const dashOpacity = useTransform(scrollYProgress, [0.4, 0.45], [1, 0]);
+  const closingBracketX = useTransform(scrollYProgress, [0.4, 0.5], [0, -14]);
 
-  const lineGuideHeight = useTransform(scrollYProgress, [0.2, 0.3], [0, 300]);
+  const lineGuideHeight = useTransform(scrollYProgress, [0.4, 0.5], [0, 300]);
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
@@ -21,7 +21,7 @@ export function ExperienceTag({ scrollYProgress }: Props) {
       <motion.a href="#snap-3" style={{ scale, x, y, opacity }}>
         <h3 className="min-w-[10.5rem] text-2xl font-medium">
           <span className="text-orange-400">{'<'}</span>
-          Experience
+          Certificates
           <motion.span
             className="text-orange-400"
             style={{ opacity: dashOpacity }}
@@ -45,17 +45,17 @@ export function ExperienceTag({ scrollYProgress }: Props) {
   );
 }
 
-export function ExperienceClosingTag({ scrollYProgress }: Props) {
-  const y = useTransform(scrollYProgress, [0.2, 0.3], [-165, 166]);
+export function CertificatesClosingTag({ scrollYProgress }: Props) {
+  const y = useTransform(scrollYProgress, [0.4, 0.5], [-165, 166]);
 
-  const opacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-3" style={{ x: -44, y, opacity }}>
         <span className="min-w-[10.5rem] text-2xl font-medium">
           <span className="text-orange-400">{'</'}</span>
-          Experience
+          Certificates
           <span className="text-orange-400">{'>'}</span>
         </span>
       </motion.a>

@@ -6,13 +6,13 @@ type Props = {
 
 export function DevTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [28, -20]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [138, -200]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [138, -90]);
 
   const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0, 0.1], [0, -14]);
 
-  const lineGuideHeight = useTransform(scrollYProgress, [0, 0.1], [0, 370]);
+  const lineGuideHeight = useTransform(scrollYProgress, [0, 0.1], [0, 152]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -45,8 +45,8 @@ export function DevTag({ scrollYProgress }: Props) {
 
 export function DevClosingTag({ scrollYProgress }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [28, -20]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [155, 200]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [170, 90]);
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 

@@ -5,6 +5,14 @@ import { PageLayout } from '../components/page-layout';
 import { Avatar } from '../components/avatar';
 import { AboutMeClosingTag, AboutMeTag } from '../components/about-me';
 import { ExperienceClosingTag, ExperienceTag } from '../components/experience';
+import {
+  LatestProjectClosingTag,
+  LatestProjectTag,
+} from '../components/latest-project';
+import {
+  CertificatesClosingTag,
+  CertificatesTag,
+} from '../components/certificates';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -17,6 +25,10 @@ export default function Home() {
       <AboutMeClosingTag scrollYProgress={scrollYProgress} />
       <ExperienceTag scrollYProgress={scrollYProgress} />
       <ExperienceClosingTag scrollYProgress={scrollYProgress} />
+      <LatestProjectTag scrollYProgress={scrollYProgress} />
+      <LatestProjectClosingTag scrollYProgress={scrollYProgress} />
+      <CertificatesTag scrollYProgress={scrollYProgress} />
+      <CertificatesClosingTag scrollYProgress={scrollYProgress} />
       <DevClosingTag scrollYProgress={scrollYProgress} />
       {/* Section snap points */}
       <div className="snap-point" id="snap-1" />

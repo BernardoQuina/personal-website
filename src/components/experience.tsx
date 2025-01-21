@@ -9,12 +9,12 @@ export function ExperienceTag({
   scrollYProgress,
   aboutMeContentHeight,
 }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
   const x = useTransform(scrollYProgress, [0, 0.1], [17, -28]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [155, -18, 32 + 18 + aboutMeContentHeight / 2],
+    [155, -18, 46 + aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);

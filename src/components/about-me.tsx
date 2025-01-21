@@ -90,8 +90,8 @@ export function AboutMeContent({
         </p>
         <p>
           Away from the keyboard, I love exploring forests and mountains with my
-          girlfriend and dog, often with a sci-fi or fantasy epic in my backpack
-          for those peaceful moments in nature.
+          girlfriend and dog, often with a sci-fi or fantasy epic to read in
+          those peaceful moments in nature.
         </p>
       </motion.div>
     </div>

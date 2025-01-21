@@ -9,12 +9,12 @@ export function CertificatesTag({
   scrollYProgress,
   aboutMeContentHeight,
 }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
   const x = useTransform(scrollYProgress, [0, 0.1], [17, -26.5]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [165, 54, 104 + aboutMeContentHeight / 2],
+    [165, 54, 86 + aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.4, 0.45], [1, 0]);

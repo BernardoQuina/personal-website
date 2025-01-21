@@ -6,12 +6,12 @@ type Props = {
 };
 
 export function DevTag({ scrollYProgress, aboutMeContentHeight }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
   const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [138, -90, -50 - aboutMeContentHeight / 2],
+    [138, -90, -46 - aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
@@ -53,12 +53,12 @@ export function DevClosingTag({
   scrollYProgress,
   aboutMeContentHeight,
 }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
   const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [170, 90, 131 + aboutMeContentHeight / 2],
+    [170, 90, 106 + aboutMeContentHeight / 2],
   );
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);

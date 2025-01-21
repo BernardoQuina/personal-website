@@ -9,12 +9,12 @@ export function LatestProjectTag({
   scrollYProgress,
   aboutMeContentHeight,
 }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
   const x = useTransform(scrollYProgress, [0, 0.1], [17, -18]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [160, 18, 77 + aboutMeContentHeight / 2],
+    [160, 18, 66 + aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);

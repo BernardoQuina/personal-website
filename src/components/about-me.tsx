@@ -7,12 +7,12 @@ type Props = {
 };
 
 export function AboutMeTag({ scrollYProgress, aboutMeContentHeight }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [0, -39]);
+  const scale = useTransform(scrollYProgress, [0, 0.1], [0.7, 1]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [17, -32]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [150, -54, -20 - aboutMeContentHeight / 2],
+    [150, -54, -45 - aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.1, 0.15], [1, 0]);
@@ -25,7 +25,7 @@ export function AboutMeTag({ scrollYProgress, aboutMeContentHeight }: Props) {
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-3" style={{ scale, x, y, opacity }}>
-        <h3 className="min-w-[8rem] text-2xl font-medium">
+        <h3 className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           AboutMe
           <motion.span
@@ -60,9 +60,9 @@ export function AboutMeContent({
   scrollYProgress,
   contentRef,
 }: AboutMeContentProps) {
-  const scale = useTransform(scrollYProgress, [0.1, 0.2], [0.6, 1]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.2], [0.1, 1]);
   const x = useTransform(scrollYProgress, [0, 0.1], [0, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [150, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.1], [150, -30]);
 
   const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 
@@ -75,7 +75,7 @@ export function AboutMeContent({
         className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
         style={{ scale, x, y, opacity }}
       >
-        <p>
+        <p className="text-base">
           I&apos;m focused on building robust, type-safe systems where cloud
           services and applications integrate seamlessly. From crafting Node.js
           APIs and React frontends to architecting AWS infrastructure, I thrive
@@ -105,15 +105,15 @@ export function AboutMeClosingTag({
   const y = useTransform(
     scrollYProgress,
     [0.1, 0.2],
-    [-54, 20 + aboutMeContentHeight / 2],
+    [-54, -15 + aboutMeContentHeight / 2],
   );
 
   const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#snap-3" style={{ x: -45, y, opacity }}>
-        <span className="min-w-[8rem] text-2xl font-medium">
+      <motion.a href="#snap-3" style={{ x: -38, y, opacity }}>
+        <span className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           AboutMe
           <span className="text-orange-400">{'>'}</span>

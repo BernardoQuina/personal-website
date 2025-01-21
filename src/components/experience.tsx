@@ -9,12 +9,12 @@ export function ExperienceTag({
   scrollYProgress,
   aboutMeContentHeight,
 }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [17, -28]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [17, -23]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [155, -18, 46 + aboutMeContentHeight / 2],
+    [155, -18, 10 + aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
@@ -27,7 +27,7 @@ export function ExperienceTag({
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-3" style={{ scale, x, y, opacity }}>
-        <h3 className="min-w-[10.5rem] text-2xl font-medium">
+        <h3 className="min-w-[8rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           Experience
           <motion.span
@@ -61,7 +61,7 @@ export function ExperienceClosingTag({ scrollYProgress }: Props) {
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-3" style={{ x: -44, y, opacity }}>
-        <span className="min-w-[10.5rem] text-2xl font-medium">
+        <span className="min-w-[8rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           Experience
           <span className="text-orange-400">{'>'}</span>

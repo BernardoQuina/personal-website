@@ -6,12 +6,12 @@ type Props = {
 };
 
 export function DevTag({ scrollYProgress, aboutMeContentHeight }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [30, 0]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [138, -90, -46 - aboutMeContentHeight / 2],
+    [138, -90, -70 - aboutMeContentHeight / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
@@ -23,7 +23,7 @@ export function DevTag({ scrollYProgress, aboutMeContentHeight }: Props) {
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-2" style={{ scale, x, y }}>
-        <h1 className="min-w-[16rem] text-2xl font-medium">
+        <h1 className="min-w-[12rem] whitespace-nowrap text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           FullStackDeveloper
           <motion.span
@@ -53,12 +53,12 @@ export function DevClosingTag({
   scrollYProgress,
   aboutMeContentHeight,
 }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.6]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+  const x = useTransform(scrollYProgress, [0, 0.1], [30, 0]);
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [170, 90, 106 + aboutMeContentHeight / 2],
+    [170, 90, 72 + aboutMeContentHeight / 2],
   );
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
@@ -66,7 +66,7 @@ export function DevClosingTag({
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-2" style={{ scale, x, y, opacity }}>
-        <span className="min-w-[16rem] text-2xl font-medium">
+        <span className="min-w-[12rem] whitespace-nowrap text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           FullStackDeveloper
           <span className="text-orange-400">{'>'}</span>

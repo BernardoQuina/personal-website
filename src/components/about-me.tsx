@@ -3,28 +3,36 @@ import { RefObject } from 'react';
 
 type Props = {
   scrollYProgress: MotionValue<number>;
-  aboutMeContentHeight: number;
+  aboutMeContentSize: { width: number; height: number };
 };
 
-export function AboutMeTag({ scrollYProgress, aboutMeContentHeight }: Props) {
+export function AboutMeTag({ scrollYProgress, aboutMeContentSize }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1], [0.7, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [17, -32]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2],
+    [17, -32, 55 + -aboutMeContentSize.width / 2],
+  );
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [150, -54, -45 - aboutMeContentHeight / 2],
+    [150, -54, -45 - aboutMeContentSize.height / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.1, 0.15], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0.1, 0.2], [0, -14]);
 
-  const lineGuideHeight = useTransform(scrollYProgress, [0.1, 0.2], [0, 300]);
+  const lineGuideHeight = useTransform(
+    scrollYProgress,
+    [0.1, 0.2],
+    [0, 3 + aboutMeContentSize.height],
+  );
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#snap-3" style={{ scale, x, y, opacity }}>
+      <motion.a href="#about-me" style={{ scale, x, y, opacity }}>
         <h3 className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           AboutMe
@@ -43,7 +51,7 @@ export function AboutMeTag({ scrollYProgress, aboutMeContentHeight }: Props) {
           </motion.span>
         </h3>
         <motion.div
-          className="absolute left-1 top-8 bg-gray-300 dark:bg-gray-700"
+          className="absolute left-1 top-8 bg-gray-200 dark:bg-gray-800"
           style={{ width: 1, height: lineGuideHeight }}
         />
       </motion.a>
@@ -61,8 +69,8 @@ export function AboutMeContent({
   contentRef,
 }: AboutMeContentProps) {
   const scale = useTransform(scrollYProgress, [0.1, 0.2], [0.1, 1]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [0, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [150, -30]);
+  const x = useTransform(scrollYProgress, [0.1, 0.2], [-52, 16]);
+  // const y = useTransform(scrollYProgress, [0, 0.1], [150, -30]);
 
   const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 
@@ -73,7 +81,7 @@ export function AboutMeContent({
     >
       <motion.div
         className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
-        style={{ scale, x, y, opacity }}
+        style={{ scale, x, y: -30, opacity }}
       >
         <p className="text-base">
           I&apos;m focused on building robust, type-safe systems where cloud
@@ -100,19 +108,24 @@ export function AboutMeContent({
 
 export function AboutMeClosingTag({
   scrollYProgress,
-  aboutMeContentHeight,
+  aboutMeContentSize,
 }: Props) {
+  const x = useTransform(
+    scrollYProgress,
+    [0.1, 0.2],
+    [-38, 55 + -aboutMeContentSize.width / 2],
+  );
   const y = useTransform(
     scrollYProgress,
     [0.1, 0.2],
-    [-54, -15 + aboutMeContentHeight / 2],
+    [-54, -15 + aboutMeContentSize.height / 2],
   );
 
   const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#snap-3" style={{ x: -38, y, opacity }}>
+      <motion.a href="#about-me" style={{ x, y, opacity }}>
         <span className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           AboutMe

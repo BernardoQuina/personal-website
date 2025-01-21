@@ -2,19 +2,23 @@ import { motion, MotionValue, useTransform } from 'motion/react';
 
 type Props = {
   scrollYProgress: MotionValue<number>;
-  aboutMeContentHeight: number;
+  aboutMeContentSize: { width: number; height: number };
 };
 
 export function LatestProjectTag({
   scrollYProgress,
-  aboutMeContentHeight,
+  aboutMeContentSize,
 }: Props) {
   const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
-  const x = useTransform(scrollYProgress, [0, 0.1], [17, -14.5]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2],
+    [17, -14.5, 51 + -aboutMeContentSize.width / 2],
+  );
   const y = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
-    [160, 18, 31 + aboutMeContentHeight / 2],
+    [160, 18, 31 + aboutMeContentSize.height / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
@@ -22,7 +26,7 @@ export function LatestProjectTag({
 
   const lineGuideHeight = useTransform(scrollYProgress, [0.3, 0.4], [0, 300]);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [0, 1, 0.5]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">

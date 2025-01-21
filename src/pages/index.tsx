@@ -24,20 +24,20 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
 
   const aboutMeContentRef = useRef<HTMLDivElement>(null);
-  const { height: aboutMeContentHeight } = useElementSize(aboutMeContentRef);
+  const aboutMeContentSize = useElementSize(aboutMeContentRef);
 
-  console.log({ aboutMeContentHeight });
+  console.log({ aboutMeContentSize });
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
       <Avatar scrollYProgress={scrollYProgress} />
       <DevTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <AboutMeTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <AboutMeContent
         scrollYProgress={scrollYProgress}
@@ -45,40 +45,40 @@ export default function Home() {
       />
       <AboutMeClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <ExperienceTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <ExperienceClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <LatestProjectTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <LatestProjectClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <CertificatesTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <CertificatesClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       <DevClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentHeight={aboutMeContentHeight}
+        aboutMeContentSize={aboutMeContentSize}
       />
       {/* Section snap points */}
-      <div className="snap-point" id="snap-1" />
-      <div className="snap-point" id="snap-2" />
-      <div className="snap-point" id="snap-3" />
+      <div className="snap-point" id="hero" />
+      <div className="snap-point" id="index" />
+      <div className="snap-point" id="about-me" />
       <div className="snap-point" id="snap-4" />
       <div className="snap-point" id="snap-5" />
       <div className="snap-point" id="snap-6" />

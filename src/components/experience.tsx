@@ -2,12 +2,20 @@ import { motion, MotionValue, useTransform } from 'motion/react';
 
 type Props = {
   scrollYProgress: MotionValue<number>;
+  aboutMeContentHeight: number;
 };
 
-export function ExperienceTag({ scrollYProgress }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
+export function ExperienceTag({
+  scrollYProgress,
+  aboutMeContentHeight,
+}: Props) {
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
   const x = useTransform(scrollYProgress, [0, 0.1], [17, -28]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [155, -18]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2],
+    [155, -18, 32 + 18 + aboutMeContentHeight / 2],
+  );
 
   const dashOpacity = useTransform(scrollYProgress, [0.2, 0.25], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0.2, 0.3], [0, -14]);

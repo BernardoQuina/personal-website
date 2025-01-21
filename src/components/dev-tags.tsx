@@ -2,17 +2,23 @@ import { motion, MotionValue, useTransform } from 'motion/react';
 
 type Props = {
   scrollYProgress: MotionValue<number>;
+  aboutMeContentHeight: number;
 };
 
-export function DevTag({ scrollYProgress }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
+export function DevTag({ scrollYProgress, aboutMeContentHeight }: Props) {
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
   const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [138, -90]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2],
+    [138, -90, -50 - aboutMeContentHeight / 2],
+  );
 
   const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0, 0.1], [0, -14]);
 
   const lineGuideHeight = useTransform(scrollYProgress, [0, 0.1], [0, 152]);
+  const lineGuideX = useTransform(scrollYProgress, [0, 0.1], [80, 0]);
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -34,19 +40,26 @@ export function DevTag({ scrollYProgress }: Props) {
             {'>'}
           </motion.span>
         </h1>
-        <motion.div
-          className="absolute left-1 top-8 bg-gray-300 dark:bg-gray-700"
-          style={{ width: 1, height: lineGuideHeight }}
-        />
       </motion.a>
+      <motion.div
+        className="absolute left-1 top-8 bg-gray-300 dark:bg-gray-700"
+        style={{ width: 1, height: lineGuideHeight, y, x: lineGuideX }}
+      />
     </div>
   );
 }
 
-export function DevClosingTag({ scrollYProgress }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
+export function DevClosingTag({
+  scrollYProgress,
+  aboutMeContentHeight,
+}: Props) {
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
   const x = useTransform(scrollYProgress, [0, 0.1], [28, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [170, 90]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2],
+    [170, 90, 131 + aboutMeContentHeight / 2],
+  );
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 

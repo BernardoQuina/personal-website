@@ -2,12 +2,20 @@ import { motion, MotionValue, useTransform } from 'motion/react';
 
 type Props = {
   scrollYProgress: MotionValue<number>;
+  aboutMeContentHeight: number;
 };
 
-export function LatestProjectTag({ scrollYProgress }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.6, 1]);
+export function LatestProjectTag({
+  scrollYProgress,
+  aboutMeContentHeight,
+}: Props) {
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.6, 1, 0.8]);
   const x = useTransform(scrollYProgress, [0, 0.1], [17, -18]);
-  const y = useTransform(scrollYProgress, [0, 0.1], [160, 18]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2],
+    [160, 18, 77 + aboutMeContentHeight / 2],
+  );
 
   const dashOpacity = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
   const closingBracketX = useTransform(scrollYProgress, [0.3, 0.4], [0, -14]);
@@ -19,7 +27,7 @@ export function LatestProjectTag({ scrollYProgress }: Props) {
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-3" style={{ scale, x, y, opacity }}>
-        <h3 className="min-w-[10.5rem] text-2xl font-medium">
+        <h3 className="min-w-[12rem] text-2xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           LatestProject
           <motion.span
@@ -53,7 +61,7 @@ export function LatestProjectClosingTag({ scrollYProgress }: Props) {
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#snap-3" style={{ x: -44, y, opacity }}>
-        <span className="min-w-[10.5rem] text-2xl font-medium">
+        <span className="min-w-[12rem] text-2xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           LatestProject
           <span className="text-orange-400">{'>'}</span>

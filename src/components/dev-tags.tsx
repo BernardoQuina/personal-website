@@ -1,36 +1,55 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 
+import { Measurements } from '../types';
+import { SECTIONS } from '../constants';
+
 type Props = {
   scrollYProgress: MotionValue<number>;
-  aboutMeContentSize: { width: number; height: number };
+  measurements: Measurements;
 };
 
-export function DevTag({ scrollYProgress, aboutMeContentSize }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+export function DevTag({ scrollYProgress, measurements }: Props) {
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0.7, 1, 0.7],
+  );
   const x = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [30, 0, 55 + -aboutMeContentSize.width / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [30, 0, 55 + -measurements.aboutMeContent.width / 2],
   );
   const y = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [138, -90, -70 - aboutMeContentSize.height / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [138, -90, -70 - measurements.aboutMeContent.height / 2],
   );
-  const opacity = useTransform(scrollYProgress, [0.1, 0.2], [1, 0.5]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [1, 0.5],
+  );
 
-  const dashOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
-  const closingBracketX = useTransform(scrollYProgress, [0, 0.1], [0, -14]);
+  const dashOpacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.hero + SECTIONS.length / 2],
+    [1, 0],
+  );
+  const closingBracketX = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index],
+    [0, -14],
+  );
 
   const lineGuideHeight = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [0, 156, 120 + aboutMeContentSize.height],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0, 156, 120 + measurements.aboutMeContent.height],
   );
   const lineGuideX = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [80, 0, 85 + -aboutMeContentSize.width / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [80, 0, 85 + -measurements.aboutMeContent.width / 2],
   );
 
   return (
@@ -62,20 +81,28 @@ export function DevTag({ scrollYProgress, aboutMeContentSize }: Props) {
   );
 }
 
-export function DevClosingTag({ scrollYProgress, aboutMeContentSize }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+export function DevClosingTag({ scrollYProgress, measurements }: Props) {
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0.7, 1, 0.7],
+  );
   const x = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [30, -3, 52 + -aboutMeContentSize.width / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [30, -3, 52 + -measurements.aboutMeContent.width / 2],
   );
   const y = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [170, 90, 72 + aboutMeContentSize.height / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [170, 90, 72 + measurements.aboutMeContent.height / 2],
   );
 
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [0, 1, 0.5]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0, 1, 0.5],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">

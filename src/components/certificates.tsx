@@ -1,24 +1,28 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 
+import { Measurements } from '../types';
+import { SECTIONS } from '../constants';
+
 type Props = {
   scrollYProgress: MotionValue<number>;
-  aboutMeContentSize: { width: number; height: number };
+  measurements: Measurements;
 };
 
-export function CertificatesTag({
-  scrollYProgress,
-  aboutMeContentSize,
-}: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+export function CertificatesTag({ scrollYProgress, measurements }: Props) {
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0.7, 1, 0.7],
+  );
   const x = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [17, -21, 47 + -aboutMeContentSize.width / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [17, -21, 47 + -measurements.aboutMeContent.width / 2],
   );
   const y = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [165, 54, 51.5 + aboutMeContentSize.height / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [165, 54, 51.5 + measurements.aboutMeContent.height / 2],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.4, 0.45], [1, 0]);
@@ -26,7 +30,11 @@ export function CertificatesTag({
 
   const lineGuideHeight = useTransform(scrollYProgress, [0.4, 0.5], [0, 300]);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [0, 1, 0.5]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0, 1, 0.5],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">

@@ -1,31 +1,46 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 import { RefObject } from 'react';
 
+import { Measurements } from '../types';
+import { SECTIONS } from '../constants';
+
 type Props = {
   scrollYProgress: MotionValue<number>;
-  aboutMeContentSize: { width: number; height: number };
+  measurements: Measurements;
 };
 
-export function AboutMeTag({ scrollYProgress, aboutMeContentSize }: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1], [0.7, 1]);
+export function AboutMeTag({ scrollYProgress, measurements }: Props) {
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index],
+    [0.7, 1],
+  );
   const x = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [17, -32, 55 + -aboutMeContentSize.width / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [17, -32, 55 + -measurements.aboutMeContent.width / 2],
   );
   const y = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [150, -54, -45 - aboutMeContentSize.height / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [150, -54, -45 - measurements.aboutMeContent.height / 2],
   );
 
-  const dashOpacity = useTransform(scrollYProgress, [0.1, 0.15], [1, 0]);
-  const closingBracketX = useTransform(scrollYProgress, [0.1, 0.2], [0, -14]);
+  const dashOpacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.index + SECTIONS.length / 2],
+    [1, 0],
+  );
+  const closingBracketX = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [0, -14],
+  );
 
   const lineGuideHeight = useTransform(
     scrollYProgress,
-    [0.1, 0.2],
-    [0, 3 + aboutMeContentSize.height],
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [0, 3 + measurements.aboutMeContent.height],
   );
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
@@ -68,11 +83,23 @@ export function AboutMeContent({
   scrollYProgress,
   contentRef,
 }: AboutMeContentProps) {
-  const scale = useTransform(scrollYProgress, [0.1, 0.2], [0.1, 1]);
-  const x = useTransform(scrollYProgress, [0.1, 0.2], [-52, 16]);
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [0.1, 1],
+  );
+  const x = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [-52, 16],
+  );
   // const y = useTransform(scrollYProgress, [0, 0.1], [150, -30]);
 
-  const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [0, 1],
+  );
 
   return (
     <div
@@ -84,7 +111,7 @@ export function AboutMeContent({
         style={{ scale, x, y: -30, opacity }}
       >
         <p className="text-base">
-          I&apos;m focused on building robust, type-safe systems where cloud
+          I&apos;m all about building robust, type-safe systems where cloud
           services and applications integrate seamlessly. From crafting Node.js
           APIs and React frontends to architecting AWS infrastructure, I thrive
           on creating scalable solutions that are reliable and maintainable.
@@ -106,22 +133,23 @@ export function AboutMeContent({
   );
 }
 
-export function AboutMeClosingTag({
-  scrollYProgress,
-  aboutMeContentSize,
-}: Props) {
+export function AboutMeClosingTag({ scrollYProgress, measurements }: Props) {
   const x = useTransform(
     scrollYProgress,
-    [0.1, 0.2],
-    [-38, 55 + -aboutMeContentSize.width / 2],
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [-38, 55 + -measurements.aboutMeContent.width / 2],
   );
   const y = useTransform(
     scrollYProgress,
-    [0.1, 0.2],
-    [-54, -15 + aboutMeContentSize.height / 2],
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [-54, -15 + measurements.aboutMeContent.height / 2],
   );
 
-  const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe],
+    [0, 1],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">

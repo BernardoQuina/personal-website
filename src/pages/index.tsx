@@ -26,18 +26,15 @@ export default function Home() {
   const aboutMeContentRef = useRef<HTMLDivElement>(null);
   const aboutMeContentSize = useElementSize(aboutMeContentRef);
 
-  console.log({ aboutMeContentSize });
+  const measurements = { aboutMeContent: aboutMeContentSize };
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
       <Avatar scrollYProgress={scrollYProgress} />
-      <DevTag
-        scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
-      />
+      <DevTag scrollYProgress={scrollYProgress} measurements={measurements} />
       <AboutMeTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <AboutMeContent
         scrollYProgress={scrollYProgress}
@@ -45,35 +42,35 @@ export default function Home() {
       />
       <AboutMeClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <ExperienceTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <ExperienceClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <LatestProjectTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <LatestProjectClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <CertificatesTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <CertificatesClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       <DevClosingTag
         scrollYProgress={scrollYProgress}
-        aboutMeContentSize={aboutMeContentSize}
+        measurements={measurements}
       />
       {/* Section snap points */}
       <div className="snap-point" id="hero" />

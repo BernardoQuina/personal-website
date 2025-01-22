@@ -1,32 +1,55 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 
+import { Measurements } from '../types';
+import { SECTIONS } from '../constants';
+
 type Props = {
   scrollYProgress: MotionValue<number>;
-  aboutMeContentSize: { width: number; height: number };
+  measurements: Measurements;
 };
 
-export function LatestProjectTag({
-  scrollYProgress,
-  aboutMeContentSize,
-}: Props) {
-  const scale = useTransform(scrollYProgress, [0, 0.1, 0.2], [0.7, 1, 0.7]);
+export function LatestProjectTag({ scrollYProgress, measurements }: Props) {
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0.7, 1, 0.7],
+  );
   const x = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [17, -14.5, 51 + -aboutMeContentSize.width / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [17, -14.5, 51 + -measurements.aboutMeContent.width / 2],
   );
   const y = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2],
-    [160, 18, 31 + aboutMeContentSize.height / 2],
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [160, 18, 31 + measurements.aboutMeContent.height / 2],
   );
 
-  const dashOpacity = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
-  const closingBracketX = useTransform(scrollYProgress, [0.3, 0.4], [0, -14]);
+  const dashOpacity = useTransform(
+    scrollYProgress,
+    [
+      SECTIONS.experience.index,
+      SECTIONS.experience.index + SECTIONS.length / 2,
+    ],
+    [1, 0],
+  );
+  const closingBracketX = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.index, 0.4],
+    [0, -14],
+  );
 
-  const lineGuideHeight = useTransform(scrollYProgress, [0.3, 0.4], [0, 300]);
+  const lineGuideHeight = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.index, 0.4],
+    [0, 300],
+  );
 
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [0, 1, 0.5]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
+    [0, 1, 0.5],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -58,9 +81,17 @@ export function LatestProjectTag({
 }
 
 export function LatestProjectClosingTag({ scrollYProgress }: Props) {
-  const y = useTransform(scrollYProgress, [0.3, 0.4], [-165, 166]);
+  const y = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.index, 0.4],
+    [-165, 166],
+  );
 
-  const opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.index, 0.4],
+    [0, 1],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">

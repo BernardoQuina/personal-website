@@ -1,14 +1,26 @@
-import { motion, MotionValue, useTransform } from 'motion/react';
+import { motion, useTransform } from 'motion/react';
 
-import { Measurements } from '../types';
+import { AnimationProps } from '../types';
 import { SECTIONS } from '../constants';
 
-type Props = {
-  scrollYProgress: MotionValue<number>;
-  measurements: Measurements;
-};
+export function ContentIndex({
+  scrollYProgress,
+  measurements,
+}: AnimationProps) {
+  return (
+    <section>
+      <div className="snap-point" id="index" />
+      <DevTag scrollYProgress={scrollYProgress} measurements={measurements} />
+      {/* Rest of content lays visually in between this tags */}
+      <DevClosingTag
+        scrollYProgress={scrollYProgress}
+        measurements={measurements}
+      />
+    </section>
+  );
+}
 
-export function DevTag({ scrollYProgress, measurements }: Props) {
+export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
@@ -16,13 +28,23 @@ export function DevTag({ scrollYProgress, measurements }: Props) {
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [30, 0, 55 + -measurements.aboutMeContent.width / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [30, 0, 55 + -measurements.aboutMeContent.width / 2, -37],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [138, -90, -70 - measurements.aboutMeContent.height / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [138, -90, -70 - measurements.aboutMeContent.height / 2, -100],
   );
   const opacity = useTransform(
     scrollYProgress,
@@ -43,13 +65,23 @@ export function DevTag({ scrollYProgress, measurements }: Props) {
 
   const lineGuideHeight = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [0, 156, 120 + measurements.aboutMeContent.height],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [0, 156, 120 + measurements.aboutMeContent.height, 200],
   );
   const lineGuideX = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [80, 0, 85 + -measurements.aboutMeContent.width / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [80, 0, 85 + -measurements.aboutMeContent.width / 2, -7],
   );
 
   return (
@@ -81,7 +113,10 @@ export function DevTag({ scrollYProgress, measurements }: Props) {
   );
 }
 
-export function DevClosingTag({ scrollYProgress, measurements }: Props) {
+export function DevClosingTag({
+  scrollYProgress,
+  measurements,
+}: AnimationProps) {
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
@@ -89,13 +124,23 @@ export function DevClosingTag({ scrollYProgress, measurements }: Props) {
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [30, -3, 52 + -measurements.aboutMeContent.width / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [30, -3, 52 + -measurements.aboutMeContent.width / 2, -37],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [170, 90, 72 + measurements.aboutMeContent.height / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [170, 90, 72 + measurements.aboutMeContent.height / 2, 121],
   );
 
   const opacity = useTransform(

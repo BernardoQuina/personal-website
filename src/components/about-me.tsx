@@ -1,49 +1,97 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 import { RefObject } from 'react';
 
-import { Measurements } from '../types';
+import { AnimationProps } from '../types';
 import { SECTIONS } from '../constants';
 
 type Props = {
-  scrollYProgress: MotionValue<number>;
-  measurements: Measurements;
-};
+  contentRef: RefObject<HTMLDivElement>;
+} & AnimationProps;
 
-export function AboutMeTag({ scrollYProgress, measurements }: Props) {
+export function AboutMe({ scrollYProgress, measurements, contentRef }: Props) {
+  return (
+    <section>
+      <div className="snap-point" id="about-me" />
+      <AboutMeTag
+        scrollYProgress={scrollYProgress}
+        measurements={measurements}
+      />
+      <AboutMeContent
+        scrollYProgress={scrollYProgress}
+        contentRef={contentRef}
+      />
+      <AboutMeClosingTag
+        scrollYProgress={scrollYProgress}
+        measurements={measurements}
+      />
+    </section>
+  );
+}
+
+function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
   const scale = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index],
-    [0.7, 1],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [0.7, 1, 1, 0.7],
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [17, -32, 55 + -measurements.aboutMeContent.width / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [17, -32, 55 + -measurements.aboutMeContent.width / 2, -58],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
-    [150, -54, -45 - measurements.aboutMeContent.height / 2],
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [150, -54, -45 - measurements.aboutMeContent.height / 2, -79],
   );
 
   const dashOpacity = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.index + SECTIONS.length / 2],
-    [1, 0],
+    [
+      SECTIONS.index,
+      SECTIONS.index + SECTIONS.length / 2,
+      SECTIONS.aboutMe + SECTIONS.length / 2,
+      SECTIONS.experience.index,
+    ],
+    [1, 0, 0, 1],
   );
   const closingBracketX = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [0, -14],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [0, -14, 0],
   );
 
   const lineGuideHeight = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [0, 3 + measurements.aboutMeContent.height],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [0, 5 + measurements.aboutMeContent.height, 0],
   );
 
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [
+      SECTIONS.hero,
+      SECTIONS.index,
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+    ],
+    [0, 1, 1, 0.5],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -66,7 +114,7 @@ export function AboutMeTag({ scrollYProgress, measurements }: Props) {
           </motion.span>
         </h3>
         <motion.div
-          className="absolute left-1 top-8 bg-gray-200 dark:bg-gray-800"
+          className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
           style={{ width: 1, height: lineGuideHeight }}
         />
       </motion.a>
@@ -79,26 +127,27 @@ type AboutMeContentProps = {
   contentRef: RefObject<HTMLDivElement>;
 };
 
-export function AboutMeContent({
-  scrollYProgress,
-  contentRef,
-}: AboutMeContentProps) {
+function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
   const scale = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [0.1, 1],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [0.1, 1, 0.1],
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [-52, 16],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [-52, 16, -52],
   );
-  // const y = useTransform(scrollYProgress, [0, 0.1], [150, -30]);
+  const y = useTransform(
+    scrollYProgress,
+    [SECTIONS.aboutMe, SECTIONS.experience.index],
+    [-30, -79],
+  );
 
   const opacity = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [0, 1],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [0, 1, 0],
   );
 
   return (
@@ -108,9 +157,9 @@ export function AboutMeContent({
     >
       <motion.div
         className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
-        style={{ scale, x, y: -30, opacity }}
+        style={{ scale, x, y, opacity }}
       >
-        <p className="text-base">
+        <p>
           I&apos;m all about building robust, type-safe systems where cloud
           services and applications integrate seamlessly. From crafting Node.js
           APIs and React frontends to architecting AWS infrastructure, I thrive
@@ -133,27 +182,32 @@ export function AboutMeContent({
   );
 }
 
-export function AboutMeClosingTag({ scrollYProgress, measurements }: Props) {
+function AboutMeClosingTag({ scrollYProgress, measurements }: AnimationProps) {
+  const scale = useTransform(
+    scrollYProgress,
+    [SECTIONS.aboutMe, SECTIONS.experience.index],
+    [1, 0.7],
+  );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [-38, 55 + -measurements.aboutMeContent.width / 2],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [-38, 55 + -measurements.aboutMeContent.width / 2, -58],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [-54, -15 + measurements.aboutMeContent.height / 2],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [-54, -15 + measurements.aboutMeContent.height / 2, -79],
   );
 
   const opacity = useTransform(
     scrollYProgress,
-    [SECTIONS.index, SECTIONS.aboutMe],
-    [0, 1],
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [0, 1, 0],
   );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#about-me" style={{ x, y, opacity }}>
+      <motion.a href="#about-me" style={{ x, y, opacity, scale }}>
         <span className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           AboutMe

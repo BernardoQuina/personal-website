@@ -1,23 +1,13 @@
 import { useRef } from 'react';
 import { useScroll } from 'motion/react';
 
-import { DevTag, DevClosingTag } from '../components/dev-tags';
+import { ContentIndex } from '../components/content-index';
 import { PageLayout } from '../components/page-layout';
-import { Avatar } from '../components/avatar';
-import {
-  AboutMeClosingTag,
-  AboutMeContent,
-  AboutMeTag,
-} from '../components/about-me';
-import { ExperienceClosingTag, ExperienceTag } from '../components/experience';
-import {
-  LatestProjectClosingTag,
-  LatestProjectTag,
-} from '../components/latest-project';
-import {
-  CertificatesClosingTag,
-  CertificatesTag,
-} from '../components/certificates';
+import { Hero } from '../components/hero';
+import { AboutMe } from '../components/about-me';
+import { Experience } from '../components/experience';
+import { LatestProject } from '../components/latest-project';
+import { Certificates } from '../components/certificates';
 import useElementSize from '../hooks/useElementSize';
 
 export default function Home() {
@@ -30,55 +20,29 @@ export default function Home() {
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
-      <Avatar scrollYProgress={scrollYProgress} />
-      <DevTag scrollYProgress={scrollYProgress} measurements={measurements} />
-      <AboutMeTag
+      <Hero scrollYProgress={scrollYProgress} />
+      <ContentIndex
         scrollYProgress={scrollYProgress}
         measurements={measurements}
       />
-      <AboutMeContent
+      <AboutMe
         scrollYProgress={scrollYProgress}
+        measurements={measurements}
         contentRef={aboutMeContentRef}
       />
-      <AboutMeClosingTag
+      <Experience
         scrollYProgress={scrollYProgress}
         measurements={measurements}
       />
-      <ExperienceTag
+      <LatestProject
         scrollYProgress={scrollYProgress}
         measurements={measurements}
       />
-      <ExperienceClosingTag
-        scrollYProgress={scrollYProgress}
-        measurements={measurements}
-      />
-      <LatestProjectTag
-        scrollYProgress={scrollYProgress}
-        measurements={measurements}
-      />
-      <LatestProjectClosingTag
-        scrollYProgress={scrollYProgress}
-        measurements={measurements}
-      />
-      <CertificatesTag
-        scrollYProgress={scrollYProgress}
-        measurements={measurements}
-      />
-      <CertificatesClosingTag
-        scrollYProgress={scrollYProgress}
-        measurements={measurements}
-      />
-      <DevClosingTag
+      <Certificates
         scrollYProgress={scrollYProgress}
         measurements={measurements}
       />
       {/* Section snap points */}
-      <div className="snap-point" id="hero" />
-      <div className="snap-point" id="index" />
-      <div className="snap-point" id="about-me" />
-      <div className="snap-point" id="snap-4" />
-      <div className="snap-point" id="snap-5" />
-      <div className="snap-point" id="snap-6" />
       <div className="snap-point" id="snap-7" />
       <div className="snap-point" id="snap-8" />
       <div className="snap-point" id="snap-9" />

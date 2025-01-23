@@ -1,22 +1,22 @@
 import Image from 'next/image';
 import { motion, MotionValue, useTransform } from 'motion/react';
 
-import { OrbiterEffect } from '../components/orbiter';
-import { Aws } from '../components/icons/aws';
-import { NodeJS } from '../components/icons/nodeJS';
-import { K8s } from '../components/icons/k8s';
-import { React } from '../components/icons/react';
+import { OrbiterEffect } from './orbiter';
+import { Aws } from './icons/aws';
+import { NodeJS } from './icons/nodeJS';
+import { K8s } from './icons/k8s';
+import { React } from './icons/react';
 
 type Props = {
   scrollYProgress: MotionValue<number>;
 };
 
-export function Avatar({ scrollYProgress }: Props) {
+export function Hero({ scrollYProgress }: Props) {
   const y = useTransform(scrollYProgress, [0, 0.1], [-50, -500]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   return (
-    <>
+    <section className="snap-point" id="hero">
       {/* <motion.div className="fixed top-24">{scrollYProgress}</motion.div> */}
       <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
         <motion.div className="items-center" style={{ opacity, y }}>
@@ -74,8 +74,8 @@ export function Avatar({ scrollYProgress }: Props) {
         <span className="text-[10px] font-bold tracking-[0.2rem] text-gray-400 dark:text-gray-600">
           SCROLL
         </span>
-        <div className="h-[15vh] w-[1px] bg-gray-300 dark:bg-gray-700 sm:h-[20vh]" />
+        <div className="h-[15vh] w-[1px] bg-gray-200 dark:bg-gray-800 sm:h-[20vh]" />
       </motion.div>
-    </>
+    </section>
   );
 }

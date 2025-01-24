@@ -1,4 +1,5 @@
 import { motion, useTransform } from 'motion/react';
+import { ArrowUpRight } from 'lucide-react';
 
 import { AnimationProps, ContentRefProps } from '../types';
 import { SECTIONS } from '../constants';
@@ -420,26 +421,48 @@ function May22Jun24Content({
 
   return (
     <div
-      className="fixed left-[50%] top-[50%] -z-10 translate-x-[-50%] translate-y-[-50%]"
+      className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
       ref={contentRef}
     >
       <motion.div
-        className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
-        style={{ scale, x, y, opacity }}
+        className="w-[calc(100vw-4rem)] max-w-[30rem]"
+        style={{ scale, x, y, opacity, z: 1000 }}
       >
-        <p>
-          I&apos;m all about building robust, type-safe systems where cloud
-          services and applications integrate seamlessly. From crafting Node.js
-          APIs and React frontends to architecting AWS infrastructure, I thrive
-          on creating scalable solutions that are reliable and maintainable.
-        </p>
-        <p>
-          After two years as a full-stack developer at PrimeIT where I worked
-          across client projects spanning the entire stack, I took some time to
-          travel and strengthen my cloud architecture and algorithmic skills. My
-          expertise is backed by AWS Solutions Architect Associate and
-          Kubernetes Developer (CKAD) certifications.
-        </p>
+        <div className="flex-row items-center gap-1 py-4">
+          <h6 className="font-medium">Software Developer ·</h6>
+          <a
+            href="https://primeit.pt"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="flex-row items-center gap-1 font-medium"
+          >
+            <span> PrimeIT</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+        <div className="gap-2 sm:gap-4">
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">Backend: </span>
+            Developed scalable Node.js APIs using TypeScript, creating efficient
+            data models and services for enterprise clients across multiple
+            projects.
+          </p>
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">Frontend: </span>Built
+            responsive React and Next.js interfaces, developing reusable
+            component libraries and delivering pixel-perfect web applications.
+          </p>
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">DevOps: </span>
+            Architected AWS cloud infrastructure using IaC, implemented CI/CD
+            pipelines, and optimized application performance and reliability.
+          </p>
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">Collaboration: </span>
+            Worked directly with clients in an agile team, adapting quickly to
+            diverse technological ecosystems and project requirements.
+          </p>
+        </div>
       </motion.div>
     </div>
   );
@@ -685,31 +708,30 @@ function Apr21May22Content({
 
   return (
     <div
-      className="fixed left-[50%] top-[50%] -z-10 translate-x-[-50%] translate-y-[-50%]"
+      className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
       ref={contentRef}
     >
       <motion.div
-        className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
+        className="w-[calc(100vw-4rem)] max-w-[30rem]"
         style={{ scale, x, y, opacity }}
       >
-        <p>
-          I&apos;m all about building robust, type-safe systems where cloud
-          services and applications integrate seamlessly. From crafting Node.js
-          APIs and React frontends to architecting AWS infrastructure, I thrive
-          on creating scalable solutions that are reliable and maintainable.
-        </p>
-        <p>
-          After two years as a full-stack developer at PrimeIT where I worked
-          across client projects spanning the entire stack, I took some time to
-          travel and strengthen my cloud architecture and algorithmic skills. My
-          expertise is backed by AWS Solutions Architect Associate and
-          Kubernetes Developer (CKAD) certifications.
-        </p>
-        <p>
-          Away from the keyboard, I love exploring forests and mountains with my
-          girlfriend and dog, often with a sci-fi or fantasy epic to read in
-          those peaceful moments in nature.
-        </p>
+        <h6 className="py-4 font-medium">Software Developer · Freelancer</h6>
+        <div className="gap-2 sm:gap-4">
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">Freelance: </span>
+            Completed a web application project for a client using Node.js and
+            Next.js, gaining early professional experience in full-stack
+            development.
+          </p>
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">
+              Independent Project:{' '}
+            </span>
+            Developed a React Native mobile application with a Node.js backend,
+            focusing on learning advanced development techniques and exploring
+            full-stack mobile development challenges
+          </p>
+        </div>
       </motion.div>
     </div>
   );

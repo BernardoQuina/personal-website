@@ -171,27 +171,39 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
 
   return (
     <div
-      className="fixed left-[50%] top-[50%] -z-10 translate-x-[-50%] translate-y-[-50%]"
+      className="fixed left-[50%] top-[50%] z-10 translate-x-[-50%] translate-y-[-50%]"
       ref={contentRef}
     >
       <motion.div
         className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
         style={{ scale, x, y, opacity }}
       >
-        <p>
+        <p className="text-muted-foreground">
           I&apos;m all about building robust, type-safe systems where cloud
-          services and applications integrate seamlessly. From crafting Node.js
-          APIs and React frontends to architecting AWS infrastructure, I thrive
-          on creating scalable solutions that are reliable and maintainable.
+          services and applications integrate seamlessly. From crafting
+          <span className="font-medium text-foreground"> Node.js </span>
+          APIs and<span className="font-medium text-foreground"> React </span>
+          frontends to architecting{' '}
+          <span className="font-medium text-foreground"> AWS </span>
+          infrastructure, I thrive on creating scalable solutions that are
+          reliable and maintainable.
         </p>
-        <p>
-          After two years as a full-stack developer at PrimeIT where I worked
-          across client projects spanning the entire stack, I took some time to
-          travel and strengthen my cloud architecture and algorithmic skills. My
-          expertise is backed by AWS Solutions Architect Associate and
-          Kubernetes Developer (CKAD) certifications.
+        <p className="text-muted-foreground">
+          After two years as a full-stack developer at
+          <a
+            href="https://primeit.pt"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mx-1 inline border-dashed border-foreground font-medium text-foreground hover:border-b"
+          >
+            PrimeIT
+          </a>
+          where I worked across client projects spanning the entire stack, I
+          took some time to travel and strengthen my cloud architecture and
+          algorithmic skills. My expertise is backed by AWS Solutions Architect
+          Associate and Kubernetes Developer (CKAD) certifications.
         </p>
-        <p>
+        <p className="text-muted-foreground">
           Away from the keyboard, I love exploring forests and mountains with my
           girlfriend and dog, often with a sci-fi or fantasy epic to read in
           those peaceful moments in nature.

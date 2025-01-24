@@ -450,17 +450,17 @@ function May22Jun24Content({
           <p className="text-muted-foreground">
             <span className="font-medium text-foreground">Frontend: </span>Built
             responsive React and Next.js interfaces, developing reusable
-            component libraries and delivering pixel-perfect web applications.
+            components and delivering pixel-perfect web apps.
           </p>
           <p className="text-muted-foreground">
             <span className="font-medium text-foreground">DevOps: </span>
-            Architected AWS cloud infrastructure using IaC, implemented CI/CD
-            pipelines, and optimized application performance and reliability.
+            Managed AWS cloud infrastructure using IaC, implemented CI/CD
+            pipelines, and optimized performance and reliability.
           </p>
           <p className="text-muted-foreground">
             <span className="font-medium text-foreground">Collaboration: </span>
             Worked directly with clients in an agile team, adapting quickly to
-            diverse technological ecosystems and project requirements.
+            diverse project requirements.
           </p>
         </div>
       </motion.div>

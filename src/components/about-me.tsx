@@ -194,7 +194,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
             href="https://primeit.pt"
             target="_blank"
             rel="noreferrer noopener"
-            className="mx-1 inline border-dashed border-foreground font-medium text-foreground hover:border-b"
+            className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
           >
             PrimeIT
           </a>

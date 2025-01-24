@@ -52,6 +52,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
     ],
     [
       160,
@@ -59,6 +60,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       31 + measurements.aboutMeContent.height / 2,
       79,
       61 + measurements.may22Jun24Content.height / 2,
+      61 + measurements.apr21May22Content.height / 2,
     ],
   );
 

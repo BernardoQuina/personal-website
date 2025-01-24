@@ -62,6 +62,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
     ],
     [
       150,
@@ -69,6 +70,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       -45 - measurements.aboutMeContent.height / 2,
       -79,
       -81 - measurements.may22Jun24Content.height / 2,
+      -81 - measurements.apr21May22Content.height / 2,
     ],
   );
 
@@ -148,12 +150,12 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
-    [0.1, 1, 0.1],
+    [0, 1, 0],
   );
   const x = useTransform(
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
-    [-52, 16, -52],
+    [-85, 16, -95],
   );
   const y = useTransform(
     scrollYProgress,

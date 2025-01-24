@@ -52,6 +52,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
     ],
     [
       165,
@@ -59,13 +60,26 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       51.5 + measurements.aboutMeContent.height / 2,
       100,
       81.5 + measurements.may22Jun24Content.height / 2,
+      81.5 + measurements.apr21May22Content.height / 2,
     ],
   );
 
-  const dashOpacity = useTransform(scrollYProgress, [0.4, 0.45], [1, 0]);
-  const closingBracketX = useTransform(scrollYProgress, [0.4, 0.5], [0, -14]);
+  const dashOpacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.latestProject, SECTIONS.latestProject + SECTIONS.length / 2],
+    [1, 0],
+  );
+  const closingBracketX = useTransform(
+    scrollYProgress,
+    [SECTIONS.latestProject, SECTIONS.certificates.index],
+    [0, -14],
+  );
 
-  const lineGuideHeight = useTransform(scrollYProgress, [0.4, 0.5], [0, 300]);
+  const lineGuideHeight = useTransform(
+    scrollYProgress,
+    [SECTIONS.latestProject, SECTIONS.certificates.index],
+    [0, 300],
+  );
 
   const opacity = useTransform(
     scrollYProgress,
@@ -103,9 +117,17 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
 }
 
 function CertificatesClosingTag({ scrollYProgress }: AnimationProps) {
-  const y = useTransform(scrollYProgress, [0.4, 0.5], [-165, 166]);
+  const y = useTransform(
+    scrollYProgress,
+    [SECTIONS.latestProject, SECTIONS.certificates.index],
+    [-165, 166],
+  );
 
-  const opacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.latestProject, SECTIONS.certificates.index],
+    [0, 1],
+  );
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">

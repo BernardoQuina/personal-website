@@ -9,6 +9,7 @@ import { Experience } from '../components/experience';
 import { LatestProject } from '../components/latest-project';
 import { Certificates } from '../components/certificates';
 import useElementSize from '../hooks/useElementSize';
+import { Measurements } from '../types';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -19,9 +20,13 @@ export default function Home() {
   const may22Jun24ContentRef = useRef<HTMLDivElement>(null);
   const may22Jun24ContentSize = useElementSize(may22Jun24ContentRef);
 
-  const measurements = {
+  const apr21May22ContentRef = useRef<HTMLDivElement>(null);
+  const apr21May22ContentSize = useElementSize(apr21May22ContentRef);
+
+  const measurements: Measurements = {
     aboutMeContent: aboutMeContentSize,
     may22Jun24Content: may22Jun24ContentSize,
+    apr21May22Content: apr21May22ContentSize,
   };
 
   return (
@@ -40,6 +45,7 @@ export default function Home() {
         scrollYProgress={scrollYProgress}
         measurements={measurements}
         may22Jun24ContentRef={may22Jun24ContentRef}
+        apr21May22ContentRef={apr21May22ContentRef}
       />
       <LatestProject
         scrollYProgress={scrollYProgress}

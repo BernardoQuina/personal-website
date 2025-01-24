@@ -1,9 +1,14 @@
-import { motion, useTransform } from 'motion/react';
+import { RefObject } from 'react';
+import { motion, MotionValue, useTransform } from 'motion/react';
 
-import { AnimationProps } from '../types';
+import { AnimationProps, ContentRefProps } from '../types';
 import { SECTIONS } from '../constants';
 
-export function Experience({ scrollYProgress, measurements }: AnimationProps) {
+export function Experience({
+  scrollYProgress,
+  measurements,
+  may22Jun24ContentRef,
+}: AnimationProps & { may22Jun24ContentRef: ContentRefProps['contentRef'] }) {
   return (
     <section>
       <div className="snap-point" id="experience" />
@@ -14,6 +19,7 @@ export function Experience({ scrollYProgress, measurements }: AnimationProps) {
       <May22Jun24
         scrollYProgress={scrollYProgress}
         measurements={measurements}
+        contentRef={may22Jun24ContentRef}
       />
       <Apr21May22
         scrollYProgress={scrollYProgress}
@@ -35,8 +41,9 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [0.7, 1, 0.7, 1],
+    [0.7, 1, 0.7, 1, 0.7],
   );
   const x = useTransform(
     scrollYProgress,
@@ -45,8 +52,15 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [17, -23, 45 + -measurements.aboutMeContent.width / 2, -31],
+    [
+      17,
+      -23,
+      45 - measurements.aboutMeContent.width / 2,
+      -31,
+      37 - measurements.may22Jun24Content.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
@@ -55,8 +69,15 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [155, -18, 10 + measurements.aboutMeContent.height / 2, -54],
+    [
+      155,
+      -18,
+      10 + measurements.aboutMeContent.height / 2,
+      -54,
+      -60 - measurements.may22Jun24Content.height / 2,
+    ],
   );
 
   const dashOpacity = useTransform(
@@ -72,8 +93,25 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
 
   const lineGuideHeight = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [0, 85],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [0, 85, 80 + measurements.may22Jun24Content.height],
+  );
+  const lineGuideX = useTransform(
+    scrollYProgress,
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      65 - measurements.aboutMeContent.width / 2,
+      -31,
+      56 - measurements.may22Jun24Content.width / 2,
+    ],
   );
 
   const opacity = useTransform(
@@ -83,8 +121,9 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [0, 1, 0.5, 1],
+    [0, 1, 0.5, 1, 0.5],
   );
 
   return (
@@ -107,11 +146,11 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
             {'>'}
           </motion.span>
         </h3>
-        <motion.div
-          className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
-          style={{ width: 1, height: lineGuideHeight }}
-        />
       </motion.a>
+      <motion.div
+        className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
+        style={{ width: 1, y, x: lineGuideX, height: lineGuideHeight }}
+      />
     </div>
   );
 }
@@ -126,26 +165,45 @@ function ExperienceClosingTag({
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
-      SECTIONS.latestProject,
     ],
-    [0.7, 1, 1, 0.7],
+    [0.7, 1, 0.7],
   );
 
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [45 + -measurements.aboutMeContent.width / 2, -31],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      45 - measurements.aboutMeContent.width / 2,
+      -31,
+      35 - measurements.may22Jun24Content.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [10 + measurements.aboutMeContent.height / 2, 54],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      10 + measurements.aboutMeContent.height / 2,
+      54,
+      40.5 + measurements.may22Jun24Content.height / 2,
+    ],
   );
 
   const opacity = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [0, 1],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [0, 1, 0.5],
   );
 
   return (
@@ -161,7 +219,11 @@ function ExperienceClosingTag({
   );
 }
 
-function May22Jun24({ scrollYProgress, measurements }: AnimationProps) {
+function May22Jun24({
+  scrollYProgress,
+  measurements,
+  contentRef,
+}: AnimationProps & ContentRefProps) {
   return (
     <article>
       <div className="snap-point" id="experience-may-22-jun-24" />
@@ -169,6 +231,11 @@ function May22Jun24({ scrollYProgress, measurements }: AnimationProps) {
         scrollYProgress={scrollYProgress}
         measurements={measurements}
       />
+      <May22Jun24Content
+        scrollYProgress={scrollYProgress}
+        contentRef={contentRef}
+      />
+
       <May22Jun24ClosingTag
         scrollYProgress={scrollYProgress}
         measurements={measurements}
@@ -185,13 +252,29 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [70 + -measurements.aboutMeContent.width / 2, 0],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      70 - measurements.aboutMeContent.width / 2,
+      0,
+      85 - measurements.may22Jun24Content.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [10 + measurements.aboutMeContent.height / 2, -18],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      10 + measurements.aboutMeContent.height / 2,
+      -18,
+      -35 - measurements.may22Jun24Content.height / 2,
+    ],
   );
 
   const dashOpacity = useTransform(
@@ -211,7 +294,12 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
   const lineGuideHeight = useTransform(
     scrollYProgress,
     [SECTIONS.experience.index, SECTIONS.experience.may22Jun24],
-    [0, 300],
+    [0, 5 + measurements.may22Jun24Content.height],
+  );
+  const lineGuideX = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.index, SECTIONS.experience.may22Jun24],
+    [0, 85 - measurements.may22Jun24Content.width / 2],
   );
 
   const opacity = useTransform(
@@ -243,20 +331,99 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
             {'>'}
           </motion.span>
         </h5>
-        <motion.div
-          className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
-          style={{ width: 1, height: lineGuideHeight }}
-        />
       </motion.a>
+      <motion.div
+        className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
+        style={{ width: 1, y, x: lineGuideX, height: lineGuideHeight }}
+      />
     </div>
   );
 }
 
-function May22Jun24ClosingTag({ scrollYProgress }: AnimationProps) {
+type May22Jun24ContentProps = {
+  scrollYProgress: MotionValue<number>;
+  contentRef: RefObject<HTMLDivElement>;
+};
+
+function May22Jun24Content({
+  scrollYProgress,
+  contentRef,
+}: May22Jun24ContentProps) {
+  const scale = useTransform(
+    scrollYProgress,
+    [
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+    ],
+    [0.1, 1, 0.1],
+  );
+  const x = useTransform(
+    scrollYProgress,
+    [
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+    ],
+    [-52, 16, -52],
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
+    [-20, -79],
+  );
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+    ],
+    [0, 1, 0],
+  );
+
+  return (
+    <div
+      className="fixed left-[50%] top-[50%] -z-10 translate-x-[-50%] translate-y-[-50%]"
+      ref={contentRef}
+    >
+      <motion.div
+        className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
+        style={{ scale, x, y, opacity }}
+      >
+        <p>
+          I&apos;m all about building robust, type-safe systems where cloud
+          services and applications integrate seamlessly. From crafting Node.js
+          APIs and React frontends to architecting AWS infrastructure, I thrive
+          on creating scalable solutions that are reliable and maintainable.
+        </p>
+        <p>
+          After two years as a full-stack developer at PrimeIT where I worked
+          across client projects spanning the entire stack, I took some time to
+          travel and strengthen my cloud architecture and algorithmic skills. My
+          expertise is backed by AWS Solutions Architect Associate and
+          Kubernetes Developer (CKAD) certifications.
+        </p>
+      </motion.div>
+    </div>
+  );
+}
+
+function May22Jun24ClosingTag({
+  scrollYProgress,
+  measurements,
+}: AnimationProps) {
+  const x = useTransform(
+    scrollYProgress,
+    [SECTIONS.experience.index, SECTIONS.experience.may22Jun24],
+    [0, 85 - measurements.may22Jun24Content.width / 2],
+  );
+
   const y = useTransform(
     scrollYProgress,
     [SECTIONS.experience.index, SECTIONS.experience.may22Jun24],
-    [-165, 166],
+    [-18, -5 + measurements.may22Jun24Content.height / 2],
   );
 
   const opacity = useTransform(
@@ -267,7 +434,7 @@ function May22Jun24ClosingTag({ scrollYProgress }: AnimationProps) {
 
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#experience-may-22-jun-24" style={{ x: -44, y, opacity }}>
+      <motion.a href="#experience-may-22-jun-24" style={{ x, y, opacity }}>
         <span className="min-w-[11rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           May22-Jun24
@@ -297,18 +464,38 @@ function Apr21May22({ scrollYProgress, measurements }: AnimationProps) {
 function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
   const scale = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [0.5, 1],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [0.5, 1, 0.7],
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [70 + -measurements.aboutMeContent.width / 2, 0],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      70 - measurements.aboutMeContent.width / 2,
+      0,
+      58.5 - measurements.may22Jun24Content.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [10 + measurements.aboutMeContent.height / 2, 18],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [
+      10 + measurements.aboutMeContent.height / 2,
+      18,
+      20 + measurements.may22Jun24Content.height / 2,
+    ],
   );
 
   const dashOpacity = useTransform(
@@ -333,8 +520,12 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
 
   const opacity = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [0, 1],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
+    ],
+    [0, 1, 0.5],
   );
 
   return (
@@ -378,7 +569,7 @@ function Apr21May22ClosingTag({ scrollYProgress }: AnimationProps) {
 
   const opacity = useTransform(
     scrollYProgress,
-    [SECTIONS.experience.index, SECTIONS.experience.may22Jun24],
+    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
     [0, 1],
   );
 

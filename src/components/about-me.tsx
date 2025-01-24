@@ -1,12 +1,10 @@
 import { motion, MotionValue, useTransform } from 'motion/react';
 import { RefObject } from 'react';
 
-import { AnimationProps } from '../types';
+import { AnimationProps, ContentRefProps } from '../types';
 import { SECTIONS } from '../constants';
 
-type Props = {
-  contentRef: RefObject<HTMLDivElement>;
-} & AnimationProps;
+type Props = AnimationProps & ContentRefProps;
 
 export function AboutMe({ scrollYProgress, measurements, contentRef }: Props) {
   return (
@@ -46,8 +44,15 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [17, -32, 55 + -measurements.aboutMeContent.width / 2, -58],
+    [
+      17,
+      -32,
+      55 - measurements.aboutMeContent.width / 2,
+      -58,
+      31 - measurements.may22Jun24Content.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
@@ -56,8 +61,15 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [150, -54, -45 - measurements.aboutMeContent.height / 2, -79],
+    [
+      150,
+      -54,
+      -45 - measurements.aboutMeContent.height / 2,
+      -79,
+      -81 - measurements.may22Jun24Content.height / 2,
+    ],
   );
 
   const dashOpacity = useTransform(
@@ -80,6 +92,11 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
     [0, 5 + measurements.aboutMeContent.height, 0],
+  );
+  const lineGuideX = useTransform(
+    scrollYProgress,
+    [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
+    [-32, 55 - measurements.aboutMeContent.width / 2, -40],
   );
 
   const opacity = useTransform(
@@ -113,11 +130,11 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
             {'>'}
           </motion.span>
         </h3>
-        <motion.div
-          className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
-          style={{ width: 1, height: lineGuideHeight }}
-        />
       </motion.a>
+      <motion.div
+        className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
+        style={{ width: 1, y, x: lineGuideX, height: lineGuideHeight }}
+      />
     </div>
   );
 }
@@ -191,7 +208,7 @@ function AboutMeClosingTag({ scrollYProgress, measurements }: AnimationProps) {
   const x = useTransform(
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
-    [-38, 55 + -measurements.aboutMeContent.width / 2, -58],
+    [-38, 55 - measurements.aboutMeContent.width / 2, -58],
   );
   const y = useTransform(
     scrollYProgress,

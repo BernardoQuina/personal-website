@@ -16,7 +16,13 @@ export default function Home() {
   const aboutMeContentRef = useRef<HTMLDivElement>(null);
   const aboutMeContentSize = useElementSize(aboutMeContentRef);
 
-  const measurements = { aboutMeContent: aboutMeContentSize };
+  const may22Jun24ContentRef = useRef<HTMLDivElement>(null);
+  const may22Jun24ContentSize = useElementSize(may22Jun24ContentRef);
+
+  const measurements = {
+    aboutMeContent: aboutMeContentSize,
+    may22Jun24Content: may22Jun24ContentSize,
+  };
 
   return (
     <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
@@ -33,6 +39,7 @@ export default function Home() {
       <Experience
         scrollYProgress={scrollYProgress}
         measurements={measurements}
+        may22Jun24ContentRef={may22Jun24ContentRef}
       />
       <LatestProject
         scrollYProgress={scrollYProgress}

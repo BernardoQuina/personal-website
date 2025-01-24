@@ -34,8 +34,15 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [17, -21, 47 + -measurements.aboutMeContent.width / 2, -47],
+    [
+      17,
+      -21,
+      47 - measurements.aboutMeContent.width / 2,
+      -47,
+      39 - measurements.may22Jun24Content.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
@@ -44,8 +51,15 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.experience.may22Jun24,
     ],
-    [165, 54, 51.5 + measurements.aboutMeContent.height / 2, 100],
+    [
+      165,
+      54,
+      51.5 + measurements.aboutMeContent.height / 2,
+      100,
+      81.5 + measurements.may22Jun24Content.height / 2,
+    ],
   );
 
   const dashOpacity = useTransform(scrollYProgress, [0.4, 0.45], [1, 0]);

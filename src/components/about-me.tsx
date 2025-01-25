@@ -201,7 +201,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
           where I worked across client projects spanning the entire stack, I
           took some time to travel and strengthen my cloud architecture and
           algorithmic skills. My expertise is backed by AWS Solutions Architect
-          Associate and Kubernetes Developer (CKAD) certifications.
+          and Kubernetes Developer certifications.
         </p>
         <p className="text-muted-foreground">
           Away from the keyboard, I love exploring forests and mountains with my

@@ -27,6 +27,7 @@ export function AboutMe({ scrollYProgress, measurements, contentRef }: Props) {
 }
 
 function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -74,6 +75,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
     ],
   );
 
+  // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
     [
@@ -101,6 +103,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
     [-32, 55 - measurements.aboutMeContent.width / 2, -40],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -112,9 +115,16 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
     [0, 1, 1, 0.5],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value >= SECTIONS.index ? 'auto' : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#about-me" style={{ scale, x, y, opacity }}>
+      <motion.a
+        href="#about-me"
+        style={{ scale, x, y, opacity, pointerEvents }}
+      >
         <h3 className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           AboutMe
@@ -147,6 +157,7 @@ type AboutMeContentProps = {
 };
 
 function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
@@ -163,15 +174,21 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
     [-30, -79],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
     [0, 1, 0],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value === SECTIONS.aboutMe ? 'auto' : 'none',
+  );
+
   return (
-    <div
-      className="fixed left-[50%] top-[50%] z-10 translate-x-[-50%] translate-y-[-50%]"
+    <motion.div
+      className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+      style={{ pointerEvents }}
       ref={contentRef}
     >
       <motion.div
@@ -226,11 +243,12 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
           those peaceful moments in nature.
         </p>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
 function AboutMeClosingTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.aboutMe, SECTIONS.experience.index],
@@ -247,15 +265,23 @@ function AboutMeClosingTag({ scrollYProgress, measurements }: AnimationProps) {
     [-54, -15 + measurements.aboutMeContent.height / 2, -79],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [SECTIONS.index, SECTIONS.aboutMe, SECTIONS.experience.index],
     [0, 1, 0],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value === SECTIONS.aboutMe ? 'auto' : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#about-me" style={{ x, y, opacity, scale }}>
+      <motion.a
+        href="#about-me"
+        style={{ x, y, opacity, scale, pointerEvents }}
+      >
         <span className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           AboutMe

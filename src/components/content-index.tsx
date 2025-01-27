@@ -149,6 +149,7 @@ export function DevClosingTag({
   scrollYProgress,
   measurements,
 }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
@@ -191,15 +192,20 @@ export function DevClosingTag({
     ],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
     [0, 1, 0.5],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value === SECTIONS.hero ? 'none' : 'auto',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#index" style={{ scale, x, y, opacity }}>
+      <motion.a href="#index" style={{ scale, x, y, opacity, pointerEvents }}>
         <span className="min-w-[12rem] whitespace-nowrap text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           FullStackDeveloper

@@ -16,11 +16,11 @@ export function Hero({ scrollYProgress }: Props) {
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   return (
-    <section className="snap-point" id="hero">
+    <section className="snap-point -z-10" id="hero">
       {/* <motion.div className="fixed top-24">{scrollYProgress}</motion.div> */}
       <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
         <motion.div className="items-center" style={{ opacity, y }}>
-          <div className="relative">
+          <div className="pointer-events-none relative">
             <OrbiterEffect initialPosition={90} rotate={45}>
               <Aws className="-rotate-45" />
             </OrbiterEffect>

@@ -39,6 +39,7 @@ export function Experience({
 }
 
 function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -87,6 +88,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
     ],
   );
 
+  // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
     [SECTIONS.aboutMe, SECTIONS.aboutMe + SECTIONS.length / 2],
@@ -127,6 +129,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
     ],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -139,9 +142,16 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
     [0, 1, 0.5, 1, 0.5],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value >= SECTIONS.index ? 'auto' : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#experience" style={{ scale, x, y, opacity }}>
+      <motion.a
+        href="#experience"
+        style={{ scale, x, y, opacity, pointerEvents }}
+      >
         <h3 className="min-w-[8rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
           Experience
@@ -172,6 +182,7 @@ function ExperienceClosingTag({
   scrollYProgress,
   measurements,
 }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -211,6 +222,7 @@ function ExperienceClosingTag({
     ],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -221,9 +233,19 @@ function ExperienceClosingTag({
     [0, 1, 0.5],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value >= SECTIONS.experience.index ||
+    value <= SECTIONS.experience.apr21May22
+      ? 'auto'
+      : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-      <motion.a href="#experience" style={{ x, y, opacity, scale }}>
+      <motion.a
+        href="#experience"
+        style={{ x, y, opacity, scale, pointerEvents }}
+      >
         <span className="min-w-[8rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
           Experience
@@ -261,6 +283,7 @@ function May22Jun24({
 }
 
 function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -302,6 +325,7 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
     ],
   );
 
+  // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
     [
@@ -337,6 +361,7 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
     [0, 85 - measurements.may22Jun24Content.width / 2],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -348,11 +373,18 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
     [0, 1, 1, 0.5],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value >= SECTIONS.experience.index ||
+    value <= SECTIONS.experience.apr21May22
+      ? 'auto'
+      : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a
         href="#experience-may-22-jun-24"
-        style={{ scale, x, y, opacity }}
+        style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h5 className="min-w-[11rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
@@ -385,6 +417,7 @@ function May22Jun24Content({
   contentRef,
   measurements,
 }: AnimationProps & ContentRefProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -409,6 +442,7 @@ function May22Jun24Content({
     [-20, -20 - measurements.apr21May22Content.height / 2],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -419,14 +453,19 @@ function May22Jun24Content({
     [0, 1, 0],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value === SECTIONS.experience.may22Jun24 ? 'auto' : 'none',
+  );
+
   return (
-    <div
-      className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+    <motion.div
+      className="pointer-events-none fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
       ref={contentRef}
+      style={{ pointerEvents }}
     >
       <motion.div
         className="w-[calc(100vw-4rem)] max-w-[30rem]"
-        style={{ scale, x, y, opacity, z: 1000 }}
+        style={{ scale, x, y, opacity }}
       >
         <div className="flex-row items-center gap-1 py-4">
           <h6 className="font-medium">Software Developer ·</h6>
@@ -464,7 +503,7 @@ function May22Jun24Content({
           </p>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -472,6 +511,7 @@ function May22Jun24ClosingTag({
   scrollYProgress,
   measurements,
 }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
@@ -497,6 +537,7 @@ function May22Jun24ClosingTag({
     ],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -507,11 +548,15 @@ function May22Jun24ClosingTag({
     [0, 1, 0],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value >= SECTIONS.experience.may22Jun24 ? 'auto' : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a
         href="#experience-may-22-jun-24"
-        style={{ x, y, opacity, scale }}
+        style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[11rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>
@@ -549,6 +594,7 @@ function Apr21May22({
 }
 
 function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -590,6 +636,7 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
     ],
   );
 
+  // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
     [
@@ -619,6 +666,7 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
     ],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -631,11 +679,18 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
     [0, 1, 0.5, 1, 0],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value >= SECTIONS.experience.index ||
+    value <= SECTIONS.experience.apr21May22
+      ? 'auto'
+      : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a
         href="#experience-apr-21-may-22"
-        style={{ scale, x, y, opacity }}
+        style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h5 className="min-w-[11rem] text-xl font-medium">
           <span className="text-orange-400">{'<'}</span>
@@ -668,6 +723,7 @@ function Apr21May22Content({
   contentRef,
   measurements,
 }: AnimationProps & ContentRefProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
@@ -696,6 +752,7 @@ function Apr21May22Content({
     [20 + measurements.may22Jun24Content.height / 2, 0, -79],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [
@@ -706,10 +763,15 @@ function Apr21May22Content({
     [0, 1, 0],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value === SECTIONS.experience.apr21May22 ? 'auto' : 'none',
+  );
+
   return (
-    <div
+    <motion.div
       className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
       ref={contentRef}
+      style={{ pointerEvents }}
     >
       <motion.div
         className="w-[calc(100vw-4rem)] max-w-[30rem]"
@@ -733,7 +795,7 @@ function Apr21May22Content({
           </p>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -741,6 +803,7 @@ function Apr21May22ClosingTag({
   scrollYProgress,
   measurements,
 }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
@@ -763,17 +826,22 @@ function Apr21May22ClosingTag({
     ],
   );
 
+  // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
     [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
     [0, 1],
   );
 
+  const pointerEvents = useTransform(scrollYProgress, (value: number) =>
+    value <= SECTIONS.experience.apr21May22 ? 'auto' : 'none',
+  );
+
   return (
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a
         href="#experience-apr-21-may-22"
-        style={{ x, y, opacity, scale }}
+        style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[11rem] text-xl font-medium">
           <span className="text-orange-400">{'</'}</span>

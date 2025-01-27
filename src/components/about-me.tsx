@@ -200,8 +200,25 @@ function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
           </a>
           where I worked across client projects spanning the entire stack, I
           took some time to travel and strengthen my cloud architecture and
-          algorithmic skills. My expertise is backed by AWS Solutions Architect
-          and Kubernetes Developer certifications.
+          algorithmic skills. My expertise is backed by
+          <a
+            href="https://cp.certmetrics.com/amazon/en/public/verify/credential/79c11b69d1134c539bc4855d8668410f"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
+          >
+            AWS Solutions Architect
+          </a>
+          and
+          <a
+            href="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/6668c22d-60f1-4f9f-a785-55868099ff72-bernardo-oliveira-simes-gentil-quina-0126c4ee-9525-48b5-83ca-13eb21cc5ae8-certificate.pdf"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
+          >
+            Kubernetes Developer
+          </a>
+          certifications.
         </p>
         <p className="text-muted-foreground">
           Away from the keyboard, I love exploring forests and mountains with my

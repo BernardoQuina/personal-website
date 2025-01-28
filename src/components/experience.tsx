@@ -59,6 +59,8 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       17,
@@ -66,6 +68,8 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       45 - measurements.aboutMeContent.width / 2,
       -31,
       37 - measurements.may22Jun24Content.width / 2,
+      37 - measurements.apr21May22Content.width / 2,
+      45.5 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
@@ -77,6 +81,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       155,
@@ -85,19 +90,30 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       -54,
       -60 - measurements.may22Jun24Content.height / 2,
       -60.5 - measurements.apr21May22Content.height / 2,
+      -40 - measurements.latestProject.height / 2,
     ],
   );
 
   // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.aboutMe + SECTIONS.length / 2],
-    [1, 0],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.aboutMe + SECTIONS.length / 2,
+      SECTIONS.experience.apr21May22 + SECTIONS.length / 2,
+      SECTIONS.latestProject,
+    ],
+    [1, 0, 0, 1],
   );
   const closingBracketX = useTransform(
     scrollYProgress,
-    [SECTIONS.aboutMe, SECTIONS.experience.index],
-    [0, -14],
+    [
+      SECTIONS.aboutMe,
+      SECTIONS.experience.index,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
+    ],
+    [0, -14, -14, 0],
   );
 
   const lineGuideHeight = useTransform(
@@ -107,12 +123,14 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       0,
       85,
       80 + measurements.may22Jun24Content.height,
       80 + measurements.apr21May22Content.height,
+      0,
     ],
   );
   const lineGuideX = useTransform(
@@ -199,11 +217,15 @@ function ExperienceClosingTag({
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       45 - measurements.aboutMeContent.width / 2,
       -31,
       35 - measurements.may22Jun24Content.width / 2,
+      35 - measurements.apr21May22Content.width / 2,
+      45.5 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
@@ -213,12 +235,14 @@ function ExperienceClosingTag({
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       10 + measurements.aboutMeContent.height / 2,
       54,
       40.5 + measurements.may22Jun24Content.height / 2,
       40.5 + measurements.apr21May22Content.height / 2,
+      -40 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -229,8 +253,10 @@ function ExperienceClosingTag({
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
-    [0, 1, 0.5],
+    [0, 1, 0.5, 0.5, 0],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
@@ -291,8 +317,9 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
-    [0.5, 1, 1, 0.7],
+    [0.5, 1, 1, 0.7, 0.5],
   );
   const x = useTransform(
     scrollYProgress,
@@ -301,12 +328,14 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       70 - measurements.aboutMeContent.width / 2,
       0,
       85 - measurements.may22Jun24Content.width / 2,
       58.5 - measurements.apr21May22Content.width / 2,
+      50 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
@@ -316,12 +345,14 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       10 + measurements.aboutMeContent.height / 2,
       -18,
       -35 - measurements.may22Jun24Content.height / 2,
       -40 - measurements.apr21May22Content.height / 2,
+      -40 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -369,8 +400,9 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
-    [0, 1, 1, 0.5],
+    [0, 1, 1, 0.5, 0],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
@@ -602,8 +634,9 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
-    [0.5, 1, 0.7, 1],
+    [0.5, 1, 0.7, 1, 0.5],
   );
   const x = useTransform(
     scrollYProgress,
@@ -612,12 +645,14 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       70 - measurements.aboutMeContent.width / 2,
       0,
       58.5 - measurements.may22Jun24Content.width / 2,
       85 - measurements.may22Jun24Content.width / 2,
+      60 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
@@ -627,12 +662,14 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       10 + measurements.aboutMeContent.height / 2,
       18,
       20 + measurements.may22Jun24Content.height / 2,
       -15 - measurements.apr21May22Content.height / 2,
+      -40 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -653,8 +690,12 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
 
   const lineGuideHeight = useTransform(
     scrollYProgress,
-    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
-    [0, 5 + measurements.apr21May22Content.height],
+    [
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
+    ],
+    [0, 5 + measurements.apr21May22Content.height, 0],
   );
 
   const lineGuideX = useTransform(
@@ -740,7 +781,11 @@ function Apr21May22Content({
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
     ],
-    [10 - measurements.may22Jun24Content.width / 2, 16, -52],
+    [
+      10 - measurements.may22Jun24Content.width / 2,
+      16,
+      10 - measurements.latestProject.width / 2,
+    ],
   );
   const y = useTransform(
     scrollYProgress,
@@ -749,7 +794,11 @@ function Apr21May22Content({
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
     ],
-    [20 + measurements.may22Jun24Content.height / 2, 0, -79],
+    [
+      20 + measurements.may22Jun24Content.height / 2,
+      0,
+      -40 - measurements.latestProject.height / 2,
+    ],
   );
 
   // Opacity and pointer events
@@ -806,31 +855,49 @@ function Apr21May22ClosingTag({
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
-    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
-    [0.7, 1],
+    [
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
+    ],
+    [0.7, 1, 0.5],
   );
   const x = useTransform(
     scrollYProgress,
-    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
+    [
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
+    ],
     [
       58.5 - measurements.may22Jun24Content.width / 2,
       85 - measurements.apr21May22Content.width / 2,
+      60 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
     scrollYProgress,
-    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
+    [
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
+    ],
     [
       20 + measurements.may22Jun24Content.height / 2,
       15 + measurements.apr21May22Content.height / 2,
+      -40 - measurements.latestProject.height / 2,
     ],
   );
 
   // Opacity and pointer events
   const opacity = useTransform(
     scrollYProgress,
-    [SECTIONS.experience.may22Jun24, SECTIONS.experience.apr21May22],
-    [0, 1],
+    [
+      SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
+    ],
+    [0, 1, 0],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>

@@ -1,5 +1,4 @@
-import { motion, MotionValue, useTransform } from 'motion/react';
-import { RefObject } from 'react';
+import { motion, useTransform } from 'motion/react';
 
 import { AnimationProps, ContentRefProps } from '../types';
 import { SECTIONS } from '../constants';
@@ -16,6 +15,7 @@ export function AboutMe({ scrollYProgress, measurements, contentRef }: Props) {
       />
       <AboutMeContent
         scrollYProgress={scrollYProgress}
+        measurements={measurements}
         contentRef={contentRef}
       />
       <AboutMeClosingTag
@@ -46,6 +46,8 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       17,
@@ -53,6 +55,8 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       55 - measurements.aboutMeContent.width / 2,
       -58,
       31 - measurements.may22Jun24Content.width / 2,
+      31 - measurements.apr21May22Content.width / 2,
+      39 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
@@ -64,6 +68,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       150,
@@ -72,6 +77,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       -79,
       -81 - measurements.may22Jun24Content.height / 2,
       -81 - measurements.apr21May22Content.height / 2,
+      -61 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -151,12 +157,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
   );
 }
 
-type AboutMeContentProps = {
-  scrollYProgress: MotionValue<number>;
-  contentRef: RefObject<HTMLDivElement>;
-};
-
-function AboutMeContent({ scrollYProgress, contentRef }: AboutMeContentProps) {
+function AboutMeContent({ scrollYProgress, contentRef }: Props) {
   // Scale and position
   const scale = useTransform(
     scrollYProgress,

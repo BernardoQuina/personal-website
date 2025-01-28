@@ -35,6 +35,8 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       17,
@@ -42,6 +44,8 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       47 - measurements.aboutMeContent.width / 2,
       -47,
       39 - measurements.may22Jun24Content.width / 2,
+      39 - measurements.apr21May22Content.width / 2,
+      50 - measurements.latestProject.width / 2,
     ],
   );
   const y = useTransform(
@@ -53,6 +57,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       165,
@@ -61,6 +66,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       100,
       81.5 + measurements.may22Jun24Content.height / 2,
       81.5 + measurements.apr21May22Content.height / 2,
+      40 + measurements.latestProject.height / 2,
     ],
   );
 

@@ -23,10 +23,14 @@ export default function Home() {
   const apr21May22ContentRef = useRef<HTMLDivElement>(null);
   const apr21May22ContentSize = useElementSize(apr21May22ContentRef);
 
+  const latestProjectContentRef = useRef<HTMLDivElement>(null);
+  const latestProjectContentSize = useElementSize(latestProjectContentRef);
+
   const measurements: Measurements = {
     aboutMeContent: aboutMeContentSize,
     may22Jun24Content: may22Jun24ContentSize,
     apr21May22Content: apr21May22ContentSize,
+    latestProject: latestProjectContentSize,
   };
 
   return (
@@ -50,13 +54,13 @@ export default function Home() {
       <LatestProject
         scrollYProgress={scrollYProgress}
         measurements={measurements}
+        contentRef={latestProjectContentRef}
       />
       <Certificates
         scrollYProgress={scrollYProgress}
         measurements={measurements}
       />
       {/* Section snap points */}
-      <div className="snap-point" id="snap-7" />
       <div className="snap-point" id="snap-8" />
       <div className="snap-point" id="snap-9" />
       <div className="snap-point" id="snap-10" />

@@ -6,6 +6,7 @@ export type Measurements = {
   aboutMeContent: Size;
   may22Jun24Content: Size;
   apr21May22Content: Size;
+  latestProject: Size;
 };
 
 export type AnimationProps = {

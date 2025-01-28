@@ -1,4 +1,6 @@
 import { motion, useTransform } from 'motion/react';
+import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 
 import { AnimationProps, ContentRefProps } from '../types';
 import { SECTIONS } from '../constants';
@@ -238,15 +240,54 @@ function LatestProjectContent({
       ref={contentRef}
     >
       <motion.div
-        className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
+        className="w-[calc(100vw-4rem)] max-w-[30rem]"
         style={{ scale, x, y, opacity }}
       >
-        <p className="text-muted-foreground">hello!!!</p>
-        <p className="text-muted-foreground">
-          Away from the keyboard, I love exploring forests and mountains with my
-          girlfriend and dog, often with a sci-fi or fantasy epic to read in
-          those peaceful moments in nature.
-        </p>
+        <a
+          href="https://video-analysis.bernardoquina.com"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="flex-row items-center gap-1 pb-4 pt-2 font-medium"
+        >
+          <h6 className="font-medium">AI Video Analysis Demo</h6>
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+        <div className="gap-2 sm:gap-4">
+          <a
+            href="https://video-analysis.bernardoquina.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Image
+              className="aspect-video w-full rounded-lg border border-border object-cover shadow-md"
+              src="/images/ai-video-analysis-demo.png"
+              alt="Latest project screenshot - AI Video Analysis Demo"
+              height={1080}
+              width={1440}
+              priority
+            />
+          </a>
+          <p className="text-muted-foreground">
+            Showcase of
+            <span className="font-medium text-foreground">
+              {' '}
+              AI-driven video analysis
+            </span>
+            , offering transcriptions, object detection, and intelligent Q&A.
+          </p>
+          <p className="text-muted-foreground">
+            Built with
+            <span className="font-medium text-foreground">
+              {' '}
+              AWS services and infrastructure{' '}
+            </span>
+            using a microservices architecture.
+          </p>
+          <p className="text-muted-foreground">
+            <span className="font-medium text-foreground">Tech stack: </span>
+            Node.js, Next.js, Python, CloudFormation (IaC), GitHub Actions.
+          </p>
+        </div>
       </motion.div>
     </motion.div>
   );

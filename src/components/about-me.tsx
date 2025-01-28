@@ -77,7 +77,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       -79,
       -81 - measurements.may22Jun24Content.height / 2,
       -81 - measurements.apr21May22Content.height / 2,
-      -61 - measurements.latestProject.height / 2,
+      -51 - measurements.latestProject.height / 2,
     ],
   );
 

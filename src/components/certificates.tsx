@@ -66,7 +66,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       100,
       81.5 + measurements.may22Jun24Content.height / 2,
       81.5 + measurements.apr21May22Content.height / 2,
-      40 + measurements.latestProject.height / 2,
+      50 + measurements.latestProject.height / 2,
     ],
   );
 

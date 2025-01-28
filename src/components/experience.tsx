@@ -90,7 +90,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       -54,
       -60 - measurements.may22Jun24Content.height / 2,
       -60.5 - measurements.apr21May22Content.height / 2,
-      -40 - measurements.latestProject.height / 2,
+      -30 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -352,7 +352,7 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
       -18,
       -35 - measurements.may22Jun24Content.height / 2,
       -40 - measurements.apr21May22Content.height / 2,
-      -40 - measurements.latestProject.height / 2,
+      -30 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -669,7 +669,7 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
       18,
       20 + measurements.may22Jun24Content.height / 2,
       -15 - measurements.apr21May22Content.height / 2,
-      -40 - measurements.latestProject.height / 2,
+      -30 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -797,7 +797,7 @@ function Apr21May22Content({
     [
       20 + measurements.may22Jun24Content.height / 2,
       0,
-      -40 - measurements.latestProject.height / 2,
+      -30 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -885,7 +885,7 @@ function Apr21May22ClosingTag({
     [
       20 + measurements.may22Jun24Content.height / 2,
       15 + measurements.apr21May22Content.height / 2,
-      -40 - measurements.latestProject.height / 2,
+      -30 - measurements.latestProject.height / 2,
     ],
   );
 

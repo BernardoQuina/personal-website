@@ -85,7 +85,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       79,
       61 + measurements.may22Jun24Content.height / 2,
       61 + measurements.apr21May22Content.height / 2,
-      -15 - measurements.latestProject.height / 2,
+      -5 - measurements.latestProject.height / 2,
     ],
   );
 
@@ -215,7 +215,7 @@ function LatestProjectContent({
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
     ],
-    [61 + measurements.apr21May22Content.height / 2, 0, -79],
+    [61 + measurements.apr21May22Content.height / 2, 10, -79],
   );
 
   // Opacity and pointer events
@@ -329,7 +329,7 @@ function LatestProjectClosingTag({
     ],
     [
       61 + measurements.apr21May22Content.height / 2,
-      15 + measurements.latestProject.height / 2,
+      25 + measurements.latestProject.height / 2,
       -79,
     ],
   );

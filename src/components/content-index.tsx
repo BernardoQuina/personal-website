@@ -65,7 +65,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       -100,
       -102 - measurements.may22Jun24Content.height / 2,
       -102 - measurements.apr21May22Content.height / 2,
-      -82 - measurements.latestProject.height / 2,
+      -72 - measurements.latestProject.height / 2,
     ],
   );
   const opacity = useTransform(
@@ -206,7 +206,7 @@ export function DevClosingTag({
       121,
       102 + measurements.may22Jun24Content.height / 2,
       102 + measurements.apr21May22Content.height / 2,
-      61 + measurements.latestProject.height / 2,
+      71 + measurements.latestProject.height / 2,
     ],
   );
 

@@ -62,6 +62,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.awsSolutionsArchitect,
     ],
     [
       17,
@@ -72,6 +73,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       37 - measurements.apr21May22Content.width / 2,
       45.5 - measurements.latestProject.width / 2,
       -85.5,
+      37.5 - measurements.awsArchitectContent.width / 2,
     ],
   );
   const y = useTransform(
@@ -85,6 +87,8 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
     ],
     [
       155,
@@ -95,6 +99,8 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       -60.5 - measurements.apr21May22Content.height / 2,
       -30 - measurements.latestProject.height / 2,
       -100,
+      -52 - measurements.awsArchitectContent.height / 2,
+      -73 - measurements.k8sDeveloperContent.height / 2,
     ],
   );
 

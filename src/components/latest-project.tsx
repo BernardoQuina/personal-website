@@ -57,6 +57,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.awsSolutionsArchitect,
     ],
     [
       17,
@@ -67,6 +68,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       43 - measurements.apr21May22Content.width / 2,
       75 - measurements.latestProject.width / 2,
       -79.5,
+      43.5 - measurements.awsArchitectContent.width / 2,
     ],
   );
   const y = useTransform(
@@ -80,6 +82,8 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
     ],
     [
       160,
@@ -90,6 +94,8 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       61 + measurements.apr21May22Content.height / 2,
       -5 - measurements.latestProject.height / 2,
       -79,
+      -31 - measurements.awsArchitectContent.height / 2,
+      -52 - measurements.k8sDeveloperContent.height / 2,
     ],
   );
 

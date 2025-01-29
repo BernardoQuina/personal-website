@@ -49,6 +49,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.awsSolutionsArchitect,
     ],
     [
       17,
@@ -59,6 +60,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       31 - measurements.apr21May22Content.width / 2,
       39 - measurements.latestProject.width / 2,
       -91.5,
+      31.5 - measurements.awsArchitectContent.width / 2,
     ],
   );
   const y = useTransform(
@@ -72,6 +74,8 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
     ],
     [
       150,
@@ -82,6 +86,8 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       -81 - measurements.apr21May22Content.height / 2,
       -51 - measurements.latestProject.height / 2,
       -121,
+      -73 - measurements.awsArchitectContent.height / 2,
+      -94 - measurements.k8sDeveloperContent.height / 2,
     ],
   );
 

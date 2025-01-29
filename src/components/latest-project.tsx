@@ -267,6 +267,7 @@ function LatestProjectContent({
             href="https://video-analysis.bernardoquina.com"
             target="_blank"
             rel="noreferrer noopener"
+            className="ml-[-1px]"
           >
             <Image
               className="aspect-video w-full rounded-lg border border-border object-cover shadow-md"

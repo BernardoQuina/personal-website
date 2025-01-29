@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion, useTransform } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -492,42 +493,70 @@ function AwsArchitectContent({
       style={{ pointerEvents }}
     >
       <motion.div
-        className="w-[calc(100vw-4rem)] max-w-[30rem]"
+        className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
         style={{ scale, x, y, opacity }}
       >
-        <div className="flex-row items-center gap-1 py-4">
-          <h6 className="font-medium">Software Developer ·</h6>
+        <div className="gap-2 pt-2 xs:flex-row xs:items-center">
           <a
-            href="https://primeit.pt"
+            href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
             target="_blank"
             rel="noreferrer noopener"
-            className="flex-row items-center gap-1 font-medium"
+            className="self-center"
           >
-            <span> PrimeIT</span>
-            <ArrowUpRight className="h-4 w-4" />
+            <Image
+              className="aspect-square w-28 object-cover"
+              src="/images/aws-sa-certificate.png"
+              alt="Latest project screenshot - AI Video Analysis Demo"
+              height={340}
+              width={340}
+              priority
+            />
           </a>
+          <div>
+            <a
+              href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="flex-row items-center gap-1 pl-0 font-medium xs:pl-0"
+            >
+              <h6 className="font-medium">
+                AWS Solutions Architect - Associate
+              </h6>
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <span className="text-left text-muted-foreground xs:text-left">
+              Issued by
+              <a
+                href="https://www.credly.com/org/amazon-web-services"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ml-1 inline font-medium text-foreground"
+              >
+                Amazon Web Services
+              </a>
+            </span>
+          </div>
         </div>
         <div className="gap-2 sm:gap-4">
           <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">Backend: </span>
-            Developed scalable Node.js APIs using TypeScript, creating efficient
-            data models and services for enterprise clients across multiple
-            projects.
+            {/* Showcase of
+            <span className="font-medium text-foreground">
+              {' '}
+              AI-driven video analysis
+            </span>
+            , offering transcriptions, object detection, and intelligent Q&A. */}
+            Earners of this certification have a comprehensive understanding of
+            AWS services and technologies.
           </p>
           <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">Frontend: </span>Built
-            responsive React and Next.js interfaces, developing reusable
-            components and delivering pixel-perfect web apps.
+            They demonstrated the ability to build secure and robust solutions
+            using architectural design principles based on customer
+            requirements.
           </p>
           <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">DevOps: </span>
-            Managed AWS cloud infrastructure using IaC, implemented CI/CD
-            pipelines, and optimized performance and reliability.
-          </p>
-          <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">Collaboration: </span>
-            Worked directly with clients in an agile team, adapting quickly to
-            diverse project requirements.
+            Badge owners are able to strategically design well-architected
+            distributed systems that are scalable, resilient, efficient, and
+            fault-tolerant.
           </p>
         </div>
       </motion.div>

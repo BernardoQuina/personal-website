@@ -21,6 +21,7 @@ export function ContentIndex({
 }
 
 export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [SECTIONS.hero, SECTIONS.index, SECTIONS.aboutMe],
@@ -36,6 +37,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       30,
@@ -45,6 +47,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       52 - measurements.may22Jun24Content.width / 2,
       52 - measurements.apr21May22Content.width / 2,
       60 - measurements.latestProject.width / 2,
+      -72,
     ],
   );
   const y = useTransform(
@@ -57,6 +60,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       138,
@@ -66,6 +70,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       -102 - measurements.may22Jun24Content.height / 2,
       -102 - measurements.apr21May22Content.height / 2,
       -72 - measurements.latestProject.height / 2,
+      -142,
     ],
   );
   const opacity = useTransform(
@@ -74,6 +79,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
     [1, 0.5],
   );
 
+  // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
     [SECTIONS.hero, SECTIONS.hero + SECTIONS.length / 2],
@@ -95,6 +101,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       0,
@@ -104,6 +111,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       185 + measurements.may22Jun24Content.height,
       185 + measurements.apr21May22Content.height,
       120 + measurements.latestProject.height,
+      200,
     ],
   );
   const lineGuideX = useTransform(
@@ -116,6 +124,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       80,
@@ -125,6 +134,7 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
       82 - measurements.may22Jun24Content.width / 2,
       82 - measurements.apr21May22Content.width / 2,
       91 - measurements.latestProject.width / 2,
+      -41,
     ],
   );
 
@@ -177,6 +187,7 @@ export function DevClosingTag({
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       30,
@@ -186,6 +197,7 @@ export function DevClosingTag({
       50 - measurements.may22Jun24Content.width / 2,
       50 - measurements.apr21May22Content.width / 2,
       58 - measurements.latestProject.width / 2,
+      -74,
     ],
   );
   const y = useTransform(
@@ -198,6 +210,7 @@ export function DevClosingTag({
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       170,
@@ -207,6 +220,7 @@ export function DevClosingTag({
       102 + measurements.may22Jun24Content.height / 2,
       102 + measurements.apr21May22Content.height / 2,
       71 + measurements.latestProject.height / 2,
+      79,
     ],
   );
 

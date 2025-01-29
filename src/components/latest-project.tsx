@@ -56,6 +56,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       17,
@@ -65,6 +66,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       43 - measurements.may22Jun24Content.width / 2,
       43 - measurements.apr21May22Content.width / 2,
       75 - measurements.latestProject.width / 2,
+      -79.5,
     ],
   );
   const y = useTransform(
@@ -77,6 +79,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       160,
@@ -86,6 +89,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       61 + measurements.may22Jun24Content.height / 2,
       61 + measurements.apr21May22Content.height / 2,
       -5 - measurements.latestProject.height / 2,
+      -79,
     ],
   );
 
@@ -129,7 +133,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
     [
       75 - measurements.apr21May22Content.width / 2,
       75 - measurements.latestProject.width / 2,
-      -40,
+      -57,
     ],
   );
 
@@ -206,7 +210,7 @@ function LatestProjectContent({
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
     ],
-    [5 - measurements.apr21May22Content.width / 2, 16, -95],
+    [5 - measurements.apr21May22Content.width / 2, 16, -125],
   );
   const y = useTransform(
     scrollYProgress,
@@ -317,7 +321,7 @@ function LatestProjectClosingTag({
     [
       43 - measurements.apr21May22Content.width / 2,
       75 - measurements.latestProject.width / 2,
-      -58,
+      -79.5,
     ],
   );
   const y = useTransform(

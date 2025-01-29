@@ -48,6 +48,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       17,
@@ -57,6 +58,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       31 - measurements.may22Jun24Content.width / 2,
       31 - measurements.apr21May22Content.width / 2,
       39 - measurements.latestProject.width / 2,
+      -91.5,
     ],
   );
   const y = useTransform(
@@ -69,6 +71,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       150,
@@ -78,6 +81,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       -81 - measurements.may22Jun24Content.height / 2,
       -81 - measurements.apr21May22Content.height / 2,
       -51 - measurements.latestProject.height / 2,
+      -121,
     ],
   );
 

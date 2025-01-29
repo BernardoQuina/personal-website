@@ -7,6 +7,8 @@ export type Measurements = {
   may22Jun24Content: Size;
   apr21May22Content: Size;
   latestProject: Size;
+  awsArchitectContent: Size;
+  k8sDeveloperContent: Size;
 };
 
 export type AnimationProps = {

@@ -26,11 +26,19 @@ export default function Home() {
   const latestProjectContentRef = useRef<HTMLDivElement>(null);
   const latestProjectContentSize = useElementSize(latestProjectContentRef);
 
+  const awsArchitectContentRef = useRef<HTMLDivElement>(null);
+  const awsArchitectContentSize = useElementSize(awsArchitectContentRef);
+
+  const k8sDeveloperContentRef = useRef<HTMLDivElement>(null);
+  const k8sDeveloperContentSize = useElementSize(k8sDeveloperContentRef);
+
   const measurements: Measurements = {
     aboutMeContent: aboutMeContentSize,
     may22Jun24Content: may22Jun24ContentSize,
     apr21May22Content: apr21May22ContentSize,
     latestProject: latestProjectContentSize,
+    awsArchitectContent: awsArchitectContentSize,
+    k8sDeveloperContent: k8sDeveloperContentSize,
   };
 
   return (
@@ -59,12 +67,11 @@ export default function Home() {
       <Certificates
         scrollYProgress={scrollYProgress}
         measurements={measurements}
+        awsArchitectContentRef={awsArchitectContentRef}
+        k8sDeveloperContentRef={k8sDeveloperContentRef}
       />
       {/* Section snap points */}
-      <div className="snap-point" id="snap-8" />
-      <div className="snap-point" id="snap-9" />
-      <div className="snap-point" id="snap-10" />
-      <div className="snap-point" id="snap-11" />
+      <div className="snap-point" id="footer" />
     </PageLayout>
   );
 }

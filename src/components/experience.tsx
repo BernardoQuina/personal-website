@@ -61,6 +61,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       17,
@@ -70,6 +71,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       37 - measurements.may22Jun24Content.width / 2,
       37 - measurements.apr21May22Content.width / 2,
       45.5 - measurements.latestProject.width / 2,
+      -85.5,
     ],
   );
   const y = useTransform(
@@ -82,6 +84,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.may22Jun24,
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
+      SECTIONS.certificates.index,
     ],
     [
       155,
@@ -91,6 +94,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       -60 - measurements.may22Jun24Content.height / 2,
       -60.5 - measurements.apr21May22Content.height / 2,
       -30 - measurements.latestProject.height / 2,
+      -100,
     ],
   );
 
@@ -139,11 +143,15 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.experience.apr21May22,
+      SECTIONS.latestProject,
     ],
     [
       65 - measurements.aboutMeContent.width / 2,
       -31,
       56 - measurements.may22Jun24Content.width / 2,
+      56 - measurements.apr21May22Content.width / 2,
+      62 - measurements.latestProject.width / 2,
     ],
   );
 

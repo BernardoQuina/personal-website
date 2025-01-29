@@ -42,7 +42,10 @@ export default function Home() {
   };
 
   return (
-    <PageLayout pageTitle="Bernardo Quina" pageDescription="todo">
+    <PageLayout
+      pageTitle="Bernardo Quina"
+      pageDescription="Full-stack developer specializing in Node.js, React, and AWS cloud architecture. Experienced in building scalable web applications with modern TypeScript stacks and cloud infrastructure."
+    >
       <Hero scrollYProgress={scrollYProgress} />
       <ContentIndex
         scrollYProgress={scrollYProgress}

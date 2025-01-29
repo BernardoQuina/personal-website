@@ -530,7 +530,7 @@ function AwsArchitectContent({
                 href="https://www.credly.com/org/amazon-web-services"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="ml-1 inline font-medium text-foreground"
+                className="ml-1 inline border-b border-dashed border-foreground font-medium text-foreground"
               >
                 Amazon Web Services
               </a>
@@ -539,12 +539,6 @@ function AwsArchitectContent({
         </div>
         <div className="gap-2 sm:gap-4">
           <p className="text-muted-foreground">
-            {/* Showcase of
-            <span className="font-medium text-foreground">
-              {' '}
-              AI-driven video analysis
-            </span>
-            , offering transcriptions, object detection, and intelligent Q&A. */}
             Earners of this certification have a comprehensive understanding of
             AWS services and technologies.
           </p>
@@ -865,24 +859,61 @@ function K8sDeveloperContent({
       style={{ pointerEvents }}
     >
       <motion.div
-        className="w-[calc(100vw-4rem)] max-w-[30rem]"
+        className="w-[calc(100vw-4rem)] max-w-[30rem] gap-2 sm:gap-4"
         style={{ scale, x, y, opacity }}
       >
-        <h6 className="py-4 font-medium">Software Developer · Freelancer</h6>
+        <div className="gap-2 pt-2 xs:flex-row xs:items-center sm:gap-4">
+          <a
+            href="https://www.credly.com/badges/135861ce-7d7b-41a7-8005-3871d9bd4466"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="self-center"
+          >
+            <Image
+              className="aspect-square w-28 object-cover"
+              src="/images/ckad-certificate.png"
+              alt="Latest project screenshot - AI Video Analysis Demo"
+              height={340}
+              width={340}
+              priority
+            />
+          </a>
+          <div>
+            <a
+              href="https://www.credly.com/badges/135861ce-7d7b-41a7-8005-3871d9bd4466"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="flex-row items-center gap-1 pl-0 font-medium xs:pl-0"
+            >
+              <h6 className="font-medium">Kubernetes Application Developer</h6>
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <span className="text-left text-muted-foreground xs:text-left">
+              Issued by
+              <a
+                href="https://www.credly.com/organizations/the-linux-foundation/badges"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ml-1 inline border-b border-dashed border-foreground font-medium text-foreground"
+              >
+                The Linux Foundation
+              </a>
+            </span>
+          </div>
+        </div>
         <div className="gap-2 sm:gap-4">
           <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">Freelance: </span>
-            Completed a web application project for a client using Node.js and
-            Next.js, gaining early professional experience in full-stack
-            development.
+            Earners of this designation demonstrated the skills to perform the
+            responsibilities of a Kubernetes Application Developer.
           </p>
           <p className="text-muted-foreground">
-            <span className="font-medium text-foreground">
-              Independent Project:{' '}
-            </span>
-            Developed a React Native mobile application with a Node.js backend,
-            focusing on learning advanced development techniques and exploring
-            full-stack mobile development challenges
+            Earners are able to use core primitives to build, monitor, and
+            troubleshoot scalable applications and tools in Kubernetes.
+          </p>
+          <p className="text-muted-foreground">
+            The knowledge demonstrated include Configuration, Multi-Container
+            Pods, Observability, Pod Design, Services & Networking, State
+            Persistence.
           </p>
         </div>
       </motion.div>

@@ -230,7 +230,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
           took some time to travel and strengthen my cloud architecture and
           algorithmic skills. My expertise is backed by
           <a
-            href="https://cp.certmetrics.com/amazon/en/public/verify/credential/79c11b69d1134c539bc4855d8668410f"
+            href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
             target="_blank"
             rel="noreferrer noopener"
             className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
@@ -239,7 +239,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
           </a>
           and
           <a
-            href="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/6668c22d-60f1-4f9f-a785-55868099ff72-bernardo-oliveira-simes-gentil-quina-0126c4ee-9525-48b5-83ca-13eb21cc5ae8-certificate.pdf"
+            href="https://www.credly.com/badges/135861ce-7d7b-41a7-8005-3871d9bd4466"
             target="_blank"
             rel="noreferrer noopener"
             className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"

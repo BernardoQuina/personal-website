@@ -647,7 +647,7 @@ function AwsArchitectClosingTag({
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
-    value >= SECTIONS.certificates.awsSolutionsArchitect ? 'auto' : 'none',
+    value === SECTIONS.certificates.awsSolutionsArchitect ? 'auto' : 'none',
   );
 
   return (
@@ -1004,7 +1004,7 @@ function K8sDeveloperClosingTag({
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
-    value <= SECTIONS.certificates.kubernetesDeveloper ? 'auto' : 'none',
+    value === SECTIONS.certificates.kubernetesDeveloper ? 'auto' : 'none',
   );
 
   return (

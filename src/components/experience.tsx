@@ -284,7 +284,7 @@ function ExperienceClosingTag({
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
-    value >= SECTIONS.experience.index ||
+    value >= SECTIONS.experience.index &&
     value <= SECTIONS.experience.apr21May22
       ? 'auto'
       : 'none',
@@ -430,7 +430,7 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
-    value >= SECTIONS.experience.index ||
+    value >= SECTIONS.experience.index &&
     value <= SECTIONS.experience.apr21May22
       ? 'auto'
       : 'none',
@@ -745,7 +745,7 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
-    value >= SECTIONS.experience.index ||
+    value >= SECTIONS.experience.index &&
     value <= SECTIONS.experience.apr21May22
       ? 'auto'
       : 'none',

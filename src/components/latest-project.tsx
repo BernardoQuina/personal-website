@@ -33,6 +33,13 @@ export function LatestProject({
 }
 
 function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
@@ -44,7 +51,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.7, 1, 0.7, 0.7, 1, 0.7, 0.7, 1],
   );
@@ -61,7 +68,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       17,
@@ -90,7 +97,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       160,
@@ -103,7 +110,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       -79,
       -31 - measurements.awsArchitectContent.height / 2,
       -52 - measurements.k8sDeveloperContent.height / 2,
-      18,
+      18 + footerOffset,
     ],
   );
 
@@ -162,7 +169,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0.5, 0.5, 1, 0.5, 0.5, 1],
   );

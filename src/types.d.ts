@@ -9,6 +9,8 @@ export type Measurements = {
   latestProject: Size;
   awsArchitectContent: Size;
   k8sDeveloperContent: Size;
+  viewportWidthTracker: Size;
+  isMobile: boolean;
 };
 
 export type AnimationProps = {

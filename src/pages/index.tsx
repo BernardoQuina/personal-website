@@ -8,11 +8,14 @@ import { AboutMe } from '../components/about-me';
 import { Experience } from '../components/experience';
 import { LatestProject } from '../components/latest-project';
 import { Certificates } from '../components/certificates';
-import useElementSize from '../hooks/useElementSize';
+import { useElementSize } from '../hooks/use-element-size';
 import { Measurements } from '../types';
+import { useIsMobile } from '../hooks/use-is-mobile';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
+
+  const isMobile = useIsMobile();
 
   const aboutMeContentRef = useRef<HTMLDivElement>(null);
   const aboutMeContentSize = useElementSize(aboutMeContentRef);
@@ -32,6 +35,9 @@ export default function Home() {
   const k8sDeveloperContentRef = useRef<HTMLDivElement>(null);
   const k8sDeveloperContentSize = useElementSize(k8sDeveloperContentRef);
 
+  const viewportWidthTrackerRef = useRef<HTMLDivElement>(null);
+  const viewportWidthTrackerSize = useElementSize(viewportWidthTrackerRef);
+
   const measurements: Measurements = {
     aboutMeContent: aboutMeContentSize,
     may22Jun24Content: may22Jun24ContentSize,
@@ -39,6 +45,8 @@ export default function Home() {
     latestProject: latestProjectContentSize,
     awsArchitectContent: awsArchitectContentSize,
     k8sDeveloperContent: k8sDeveloperContentSize,
+    viewportWidthTracker: viewportWidthTrackerSize,
+    isMobile,
   };
 
   return (
@@ -73,7 +81,10 @@ export default function Home() {
         awsArchitectContentRef={awsArchitectContentRef}
         k8sDeveloperContentRef={k8sDeveloperContentRef}
       />
-      {/* Section snap points */}
+      <div
+        ref={viewportWidthTrackerRef}
+        className="pointer-events-none fixed bottom-0 h-[1px] w-[100vw]"
+      />
     </PageLayout>
   );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, RefObject } from 'react';
 
-const useElementSize = (ref: RefObject<HTMLElement>) => {
+export function useElementSize(ref: RefObject<HTMLElement>) {
   const [size, setSize] = useState({
     width: 0,
     height: 0,
@@ -38,6 +38,4 @@ const useElementSize = (ref: RefObject<HTMLElement>) => {
   }, [ref, updateSize]);
 
   return size;
-};
-
-export default useElementSize;
+}

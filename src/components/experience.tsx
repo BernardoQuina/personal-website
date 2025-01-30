@@ -39,6 +39,13 @@ export function Experience({
 }
 
 function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
@@ -49,7 +56,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.7, 1, 0.7, 1, 0.7, 0.7, 1],
   );
@@ -66,7 +73,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       17,
@@ -95,7 +102,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       155,
@@ -108,7 +115,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       -100,
       -52 - measurements.awsArchitectContent.height / 2,
       -73 - measurements.k8sDeveloperContent.height / 2,
-      -18,
+      -18 + footerOffset,
     ],
   );
 
@@ -179,7 +186,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0.5, 1, 0.5, 0.5, 1],
   );

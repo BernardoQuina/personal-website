@@ -40,6 +40,13 @@ export function Certificates({
 }
 
 function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
@@ -51,7 +58,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.7, 1, 0.7, 0.7, 1, 0.7, 0.7, 1],
   );
@@ -68,7 +75,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       17,
@@ -97,7 +104,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       165,
@@ -110,7 +117,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       -54,
       -10 - measurements.awsArchitectContent.height / 2,
       -31 - measurements.k8sDeveloperContent.height / 2,
-      54,
+      54 + footerOffset,
     ],
   );
 
@@ -121,7 +128,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.latestProject + SECTIONS.length / 2,
       SECTIONS.certificates.kubernetesDeveloper + SECTIONS.length / 2,
-      SECTIONS.footer,
+      footerSection,
     ],
     [1, 0, 0, 1],
   );
@@ -131,7 +138,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, -14, -14, 0],
   );
@@ -143,7 +150,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       0,
@@ -160,7 +167,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       72 - measurements.latestProject.width / 2,
@@ -182,7 +189,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0.5, 0.5, 1, 0.5, 0.5, 1],
   );
@@ -227,6 +234,13 @@ function CertificatesClosingTag({
   scrollYProgress,
   measurements,
 }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
@@ -235,7 +249,7 @@ function CertificatesClosingTag({
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.7, 1, 0.7, 0.7, 1],
   );
@@ -247,7 +261,7 @@ function CertificatesClosingTag({
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       50 - measurements.latestProject.width / 2,
@@ -264,14 +278,14 @@ function CertificatesClosingTag({
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       50 + measurements.latestProject.height / 2,
       54,
       91 + measurements.awsArchitectContent.height / 2,
       70 + measurements.k8sDeveloperContent.height / 2,
-      54,
+      54 + footerOffset,
     ],
   );
 
@@ -283,7 +297,7 @@ function CertificatesClosingTag({
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0.5, 0.5, 0],
   );
@@ -338,6 +352,13 @@ function AwsArchitect({
 }
 
 function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
@@ -346,7 +367,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.5, 1, 1, 0.7, 0.5],
   );
@@ -357,7 +378,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       70 - measurements.latestProject.width / 2,
@@ -374,14 +395,14 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       50 + measurements.latestProject.height / 2,
       -18,
       15 - measurements.awsArchitectContent.height / 2,
       -10 - measurements.k8sDeveloperContent.height / 2,
-      54,
+      54 + footerOffset,
     ],
   );
 
@@ -429,7 +450,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 1, 0.5, 0],
   );
@@ -692,6 +713,13 @@ function K8sDeveloper({
 }
 
 function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
@@ -700,7 +728,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.5, 1, 0.7, 1, 0.5],
   );
@@ -711,7 +739,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       70 - measurements.latestProject.width / 2,
@@ -728,14 +756,14 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       50 + measurements.latestProject.height / 2,
       18,
       70 + measurements.awsArchitectContent.height / 2,
       15 - measurements.k8sDeveloperContent.height / 2,
-      54,
+      54 + footerOffset,
     ],
   );
 
@@ -762,7 +790,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 5 + measurements.k8sDeveloperContent.height, 0],
   );
@@ -772,7 +800,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       116 - measurements.awsArchitectContent.width / 2,
@@ -789,7 +817,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0.5, 1, 0],
   );
@@ -838,13 +866,20 @@ function K8sDeveloperContent({
   contentRef,
   measurements,
 }: AnimationProps & ContentRefProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0],
   );
@@ -853,7 +888,7 @@ function K8sDeveloperContent({
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [-measurements.awsArchitectContent.width / 2, 16, -80],
   );
@@ -862,9 +897,9 @@ function K8sDeveloperContent({
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
-    [70 + measurements.awsArchitectContent.height / 2, 30, 54],
+    [70 + measurements.awsArchitectContent.height / 2, 30, 54 + footerOffset],
   );
 
   // Opacity and pointer events
@@ -873,7 +908,7 @@ function K8sDeveloperContent({
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0],
   );
@@ -955,13 +990,20 @@ function K8sDeveloperClosingTag({
   scrollYProgress,
   measurements,
 }: AnimationProps) {
+  // Because of the dynamic viewport on mobile, animations that go to the end
+  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // Also, in the end the footer is quite tall on small screens so we'll offset all
+  // elements towards the top.
+  const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
+  const footerOffset = measurements.viewportWidthTracker.width < 640 ? -100 : 0;
+
   // Scale and position
   const scale = useTransform(
     scrollYProgress,
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0.7, 1, 0.5],
   );
@@ -970,7 +1012,7 @@ function K8sDeveloperClosingTag({
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       81 - measurements.awsArchitectContent.width / 2,
@@ -983,12 +1025,12 @@ function K8sDeveloperClosingTag({
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [
       70 + measurements.awsArchitectContent.height / 2,
       45 + measurements.k8sDeveloperContent.height / 2,
-      54,
+      54 + footerOffset,
     ],
   );
 
@@ -998,7 +1040,7 @@ function K8sDeveloperClosingTag({
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
-      SECTIONS.footer,
+      footerSection,
     ],
     [0, 1, 0],
   );

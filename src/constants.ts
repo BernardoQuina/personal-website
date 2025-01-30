@@ -1,6 +1,6 @@
 // The scroll progress location of each section
 export const SECTIONS = {
-  hero: 0.01 as const,
+  hero: 0.01 as const, // Should be 0 but it looks clunky on mobile because of the dynamic viewport
   index: 0.1 as const,
   aboutMe: 0.2 as const,
   experience: {
@@ -14,7 +14,7 @@ export const SECTIONS = {
     awsSolutionsArchitect: 0.8 as const,
     kubernetesDeveloper: 0.9 as const,
   },
-  footer: 0.99 as const, // Should be 1 but it looks clunky on mobile because of the dynamic viewport
+  footer: 0.98 as const, // Should be 1 but it looks clunky on mobile because of the dynamic viewport
   // Each section length
   length: 0.1 as const,
 };

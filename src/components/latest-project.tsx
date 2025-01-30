@@ -185,17 +185,17 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h3 className="min-w-[9rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           LatestProject
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -383,9 +383,9 @@ function LatestProjectClosingTag({
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <span className="min-w-[9rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           LatestProject
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>

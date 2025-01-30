@@ -184,17 +184,17 @@ export function DevTag({ scrollYProgress, measurements }: AnimationProps) {
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#index" style={{ scale, x, y, opacity }}>
         <h1 className="min-w-[12rem] whitespace-nowrap text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           FullStackDeveloper
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -312,9 +312,9 @@ export function DevClosingTag({
     <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
       <motion.a href="#index" style={{ scale, x, y, opacity, pointerEvents }}>
         <span className="min-w-[12rem] whitespace-nowrap text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           FullStackDeveloper
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>

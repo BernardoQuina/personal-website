@@ -202,17 +202,17 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h3 className="min-w-[8rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           Experience
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -304,9 +304,9 @@ function ExperienceClosingTag({
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[8rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           Experience
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>
@@ -450,17 +450,17 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h5 className="min-w-[11rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           May22-Jun24
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -622,9 +622,9 @@ function May22Jun24ClosingTag({
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[11rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           May22-Jun24
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>
@@ -765,17 +765,17 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h5 className="min-w-[11rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           Apr21-May22
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -871,7 +871,7 @@ function Apr21May22Content({
             </span>
             Developed a React Native mobile application with a Node.js backend,
             focusing on learning advanced development techniques and exploring
-            full-stack mobile development challenges
+            full-stack mobile development challenges.
           </p>
         </div>
       </motion.div>
@@ -942,9 +942,9 @@ function Apr21May22ClosingTag({
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[11rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           Apr21-May22
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>

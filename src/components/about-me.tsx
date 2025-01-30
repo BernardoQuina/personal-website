@@ -159,17 +159,17 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h3 className="min-w-[7.5rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           AboutMe
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -311,9 +311,9 @@ function AboutMeClosingTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[7.5rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           AboutMe
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>

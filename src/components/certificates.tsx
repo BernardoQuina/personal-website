@@ -205,17 +205,17 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h3 className="min-w-[9rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           Certificates
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -316,9 +316,9 @@ function CertificatesClosingTag({
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[9rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           Certificates
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>
@@ -469,17 +469,17 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h5 className="min-w-[15rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           AwsSolutionsArchitect
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -678,9 +678,9 @@ function AwsArchitectClosingTag({
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[15rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           AwsSolutionsArchitect
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>
@@ -836,17 +836,17 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
         style={{ scale, x, y, opacity, pointerEvents }}
       >
         <h5 className="min-w-[15rem] text-xl font-medium">
-          <span className="text-orange-400">{'<'}</span>
+          <span className="text-blue-400">{'<'}</span>
           KubernetesDeveloper
           <motion.span
-            className="text-orange-400"
+            className="text-blue-400"
             style={{ opacity: dashOpacity }}
           >
             {' '}
             /
           </motion.span>
           <motion.span
-            className="inline-block text-orange-400"
+            className="inline-block text-blue-400"
             style={{ x: closingBracketX }}
           >
             {'>'}
@@ -1056,9 +1056,9 @@ function K8sDeveloperClosingTag({
         style={{ x, y, opacity, scale, pointerEvents }}
       >
         <span className="min-w-[15rem] text-xl font-medium">
-          <span className="text-orange-400">{'</'}</span>
+          <span className="text-blue-400">{'</'}</span>
           KubernetesDeveloper
-          <span className="text-orange-400">{'>'}</span>
+          <span className="text-blue-400">{'>'}</span>
         </span>
       </motion.a>
     </div>

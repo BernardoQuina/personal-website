@@ -52,15 +52,15 @@ export function Hero({ scrollYProgress }: Props) {
               <React className="rotate-[-135deg]" />
             </OrbiterEffect>
             <div
-              className="absolute left-[50%] top-[50%] -z-10 h-[300px] w-[300px] translate-x-[-52%] translate-y-[-50%] rounded-full bg-orange-600 blur-xl"
+              className="absolute left-[50%] top-[50%] -z-10 h-[250px] w-[250px] translate-x-[-52%] translate-y-[-50%] rounded-full blur-xl"
               style={{
                 background:
-                  'radial-gradient(rgba(255,165,0,1) 30%, rgba(255,165,0,0.3) 31%, rgba(255,165,0,0.15) 50%, rgba(255,165,0,0) 100%)',
+                  'radial-gradient(rgba(0,55,255,1) 10%, rgba(0,55,255,0.3) 25%, rgba(0,55,255,0.15) 50%, rgba(0,55,255,0) 100%)',
               }}
             />
 
             <div className="absolute left-[50%] top-[50%] z-0 h-[220px] w-[220px] translate-x-[-50%] translate-y-[-50%]">
-              <div className="overflow-hidden rounded-2xl border border-orange-300/50 bg-orange-200/70 shadow-lg">
+              <div className="overflow-hidden rounded-2xl border border-blue-300/50 bg-blue-200/70 shadow-lg">
                 <Image
                   src="/images/profile-picture.png"
                   alt="Bernardo Quina's profile picture"

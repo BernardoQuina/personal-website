@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { motion, MotionValue, useTransform } from 'motion/react';
 
+import { SECTIONS } from '../constants';
+
 import { OrbiterEffect } from './orbiter';
 import { Aws } from './icons/aws';
 import { NodeJS } from './icons/nodeJS';
@@ -12,8 +14,16 @@ type Props = {
 };
 
 export function Hero({ scrollYProgress }: Props) {
-  const y = useTransform(scrollYProgress, [0, 0.1], [-50, -500]);
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const y = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index],
+    [-50, -500],
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [SECTIONS.hero, SECTIONS.index],
+    [1, 0],
+  );
 
   return (
     <section className="snap-point -z-10" id="hero">

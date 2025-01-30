@@ -196,7 +196,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
   );
 
   return (
-    <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
+    <div className="fixed left-[50%] top-[50%] z-10 translate-x-[-50%] translate-y-[-50%]">
       <motion.a
         href="#experience"
         style={{ scale, x, y, opacity, pointerEvents }}
@@ -932,7 +932,7 @@ function Apr21May22ClosingTag({
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
-    value <= SECTIONS.experience.apr21May22 ? 'auto' : 'none',
+    value === SECTIONS.experience.apr21May22 ? 'auto' : 'none',
   );
 
   return (

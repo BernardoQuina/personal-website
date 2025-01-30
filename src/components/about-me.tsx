@@ -215,7 +215,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
 
   return (
     <motion.div
-      className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+      className="fixed left-[50%] top-[50%] z-20 translate-x-[-50%] translate-y-[-50%]"
       style={{ pointerEvents }}
       ref={contentRef}
     >

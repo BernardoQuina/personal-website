@@ -74,7 +74,6 @@ export default function Home() {
         k8sDeveloperContentRef={k8sDeveloperContentRef}
       />
       {/* Section snap points */}
-      <div className="snap-point" id="footer" />
     </PageLayout>
   );
 }

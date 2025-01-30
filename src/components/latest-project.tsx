@@ -43,8 +43,10 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0.7, 1, 0.7, 0.7, 1, 0.7],
+    [0.7, 1, 0.7, 0.7, 1, 0.7, 0.7, 1],
   );
   const x = useTransform(
     scrollYProgress,
@@ -58,6 +60,8 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       17,
@@ -69,6 +73,8 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       75 - measurements.latestProject.width / 2,
       -79.5,
       43.5 - measurements.awsArchitectContent.width / 2,
+      43.5 - measurements.k8sDeveloperContent.width / 2,
+      -14.5,
     ],
   );
   const y = useTransform(
@@ -84,6 +90,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       160,
@@ -96,6 +103,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       -79,
       -31 - measurements.awsArchitectContent.height / 2,
       -52 - measurements.k8sDeveloperContent.height / 2,
+      18,
     ],
   );
 
@@ -150,12 +158,13 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.hero,
       SECTIONS.index,
       SECTIONS.aboutMe,
-
       SECTIONS.experience.apr21May22,
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0, 1, 0.5, 0.5, 1, 0.5],
+    [0, 1, 0.5, 0.5, 1, 0.5, 0.5, 1],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>

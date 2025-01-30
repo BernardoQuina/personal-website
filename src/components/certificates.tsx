@@ -50,8 +50,10 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0.7, 1, 0.7, 0.7, 1, 0.7],
+    [0.7, 1, 0.7, 0.7, 1, 0.7, 0.7, 1],
   );
   const x = useTransform(
     scrollYProgress,
@@ -65,6 +67,8 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       17,
@@ -76,6 +80,8 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       50 - measurements.latestProject.width / 2,
       -62,
       39 - measurements.awsArchitectContent.width / 2,
+      39 - measurements.k8sDeveloperContent.width / 2,
+      -21,
     ],
   );
   const y = useTransform(
@@ -91,6 +97,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       165,
@@ -103,19 +110,30 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       -54,
       -10 - measurements.awsArchitectContent.height / 2,
       -31 - measurements.k8sDeveloperContent.height / 2,
+      54,
     ],
   );
 
   // Self-closing/Double tag animation and line guide
   const dashOpacity = useTransform(
     scrollYProgress,
-    [SECTIONS.latestProject, SECTIONS.latestProject + SECTIONS.length / 2],
-    [1, 0],
+    [
+      SECTIONS.latestProject,
+      SECTIONS.latestProject + SECTIONS.length / 2,
+      SECTIONS.certificates.kubernetesDeveloper + SECTIONS.length / 2,
+      SECTIONS.footer,
+    ],
+    [1, 0, 0, 1],
   );
   const closingBracketX = useTransform(
     scrollYProgress,
-    [SECTIONS.latestProject, SECTIONS.certificates.index],
-    [0, -14],
+    [
+      SECTIONS.latestProject,
+      SECTIONS.certificates.index,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
+    ],
+    [0, -14, -14, 0],
   );
 
   const lineGuideHeight = useTransform(
@@ -125,12 +143,14 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       0,
       82,
       79 + measurements.awsArchitectContent.height,
       79 + measurements.k8sDeveloperContent.height,
+      0,
     ],
   );
   const lineGuideX = useTransform(
@@ -139,11 +159,15 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       72 - measurements.latestProject.width / 2,
       -62,
       59 - measurements.awsArchitectContent.width / 2,
+      59 - measurements.k8sDeveloperContent.width / 2,
+      -21,
     ],
   );
 
@@ -157,8 +181,10 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0, 1, 0.5, 0.5, 1, 0.5],
+    [0, 1, 0.5, 0.5, 1, 0.5, 0.5, 1],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
@@ -208,8 +234,10 @@ function CertificatesClosingTag({
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0.7, 1, 0.7],
+    [0.7, 1, 0.7, 0.7, 1],
   );
 
   const x = useTransform(
@@ -218,11 +246,15 @@ function CertificatesClosingTag({
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       50 - measurements.latestProject.width / 2,
       -62,
       39 - measurements.awsArchitectContent.width / 2,
+      39 - measurements.k8sDeveloperContent.width / 2,
+      -21,
     ],
   );
   const y = useTransform(
@@ -232,12 +264,14 @@ function CertificatesClosingTag({
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       50 + measurements.latestProject.height / 2,
       54,
       91 + measurements.awsArchitectContent.height / 2,
       70 + measurements.k8sDeveloperContent.height / 2,
+      54,
     ],
   );
 
@@ -248,8 +282,10 @@ function CertificatesClosingTag({
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0, 1, 0.5],
+    [0, 1, 0.5, 0.5, 0],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
@@ -328,7 +364,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
       0,
       117 - measurements.awsArchitectContent.width / 2,
       81 - measurements.k8sDeveloperContent.width / 2,
-      50 - measurements.latestProject.width / 2,
+      -21,
     ],
   );
   const y = useTransform(
@@ -345,7 +381,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
       -18,
       15 - measurements.awsArchitectContent.height / 2,
       -10 - measurements.k8sDeveloperContent.height / 2,
-      -30 - measurements.latestProject.height / 2,
+      54,
     ],
   );
 
@@ -682,7 +718,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       0,
       81 - measurements.awsArchitectContent.width / 2,
       117 - measurements.k8sDeveloperContent.width / 2,
-      60 - measurements.latestProject.width / 2,
+      -21,
     ],
   );
   const y = useTransform(
@@ -699,7 +735,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       18,
       70 + measurements.awsArchitectContent.height / 2,
       15 - measurements.k8sDeveloperContent.height / 2,
-      -30 - measurements.latestProject.height / 2,
+      54,
     ],
   );
 
@@ -728,7 +764,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.kubernetesDeveloper,
       SECTIONS.footer,
     ],
-    [0, 5 + measurements.apr21May22Content.height, 0],
+    [0, 5 + measurements.k8sDeveloperContent.height, 0],
   );
 
   const lineGuideX = useTransform(
@@ -736,10 +772,12 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
     [
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       116 - measurements.awsArchitectContent.width / 2,
       117 - measurements.k8sDeveloperContent.width / 2,
+      35,
     ],
   );
 
@@ -817,11 +855,7 @@ function K8sDeveloperContent({
       SECTIONS.certificates.kubernetesDeveloper,
       SECTIONS.footer,
     ],
-    [
-      -measurements.awsArchitectContent.width / 2,
-      16,
-      10 - measurements.latestProject.width / 2,
-    ],
+    [-measurements.awsArchitectContent.width / 2, 16, -80],
   );
   const y = useTransform(
     scrollYProgress,
@@ -830,11 +864,7 @@ function K8sDeveloperContent({
       SECTIONS.certificates.kubernetesDeveloper,
       SECTIONS.footer,
     ],
-    [
-      70 + measurements.awsArchitectContent.height / 2,
-      30,
-      -30 - measurements.latestProject.height / 2,
-    ],
+    [70 + measurements.awsArchitectContent.height / 2, 30, 54],
   );
 
   // Opacity and pointer events
@@ -945,7 +975,7 @@ function K8sDeveloperClosingTag({
     [
       81 - measurements.awsArchitectContent.width / 2,
       117 - measurements.k8sDeveloperContent.width / 2,
-      60 - measurements.latestProject.width / 2,
+      -21,
     ],
   );
   const y = useTransform(
@@ -958,7 +988,7 @@ function K8sDeveloperClosingTag({
     [
       70 + measurements.awsArchitectContent.height / 2,
       45 + measurements.k8sDeveloperContent.height / 2,
-      -30 - measurements.latestProject.height / 2,
+      54,
     ],
   );
 

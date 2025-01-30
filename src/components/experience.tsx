@@ -48,8 +48,10 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0.7, 1, 0.7, 1, 0.7],
+    [0.7, 1, 0.7, 1, 0.7, 0.7, 1],
   );
   const x = useTransform(
     scrollYProgress,
@@ -63,6 +65,8 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       17,
@@ -74,6 +78,8 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       45.5 - measurements.latestProject.width / 2,
       -85.5,
       37.5 - measurements.awsArchitectContent.width / 2,
+      37.5 - measurements.k8sDeveloperContent.width / 2,
+      -23,
     ],
   );
   const y = useTransform(
@@ -89,6 +95,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       155,
@@ -101,6 +108,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       -100,
       -52 - measurements.awsArchitectContent.height / 2,
       -73 - measurements.k8sDeveloperContent.height / 2,
+      -18,
     ],
   );
 
@@ -170,8 +178,10 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
       SECTIONS.experience.may22Jun24,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0, 1, 0.5, 1, 0.5],
+    [0, 1, 0.5, 1, 0.5, 0.5, 1],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>
@@ -539,8 +549,8 @@ function May22Jun24Content({
           </p>
           <p className="text-muted-foreground">
             <span className="font-medium text-foreground">DevOps: </span>
-            Managed AWS cloud infrastructure using IaC, implemented CI/CD
-            pipelines, and optimized performance and reliability.
+            Managed AWS infrastructure using IaC, implemented CI/CD pipelines,
+            and optimized performance and reliability.
           </p>
           <p className="text-muted-foreground">
             <span className="font-medium text-foreground">Collaboration: </span>

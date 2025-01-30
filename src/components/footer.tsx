@@ -6,8 +6,11 @@ import { X } from './icons/x';
 
 export function Footer() {
   return (
-    <footer className="mt-20 w-full items-center overflow-hidden bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="w-full max-w-[70rem] justify-between gap-12 px-4 py-12 sm:flex-row sm:gap-0 lg:px-8">
+    <footer
+      id="footer"
+      className="snap-point w-full items-center overflow-hidden"
+    >
+      <div className="mt-auto w-full max-w-[70rem] justify-between gap-12 px-4 py-12 sm:flex-row sm:gap-0 lg:px-8">
         <div className="w-full flex-row items-center justify-around sm:contents sm:justify-between">
           <div className="justify-center">
             <div className="flex-column items-center gap-1 sm:items-start">

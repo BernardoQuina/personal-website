@@ -35,8 +35,10 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0.7, 1, 1, 0.7],
+    [0.7, 1, 1, 0.7, 0.7, 1],
   );
   const x = useTransform(
     scrollYProgress,
@@ -50,6 +52,8 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.latestProject,
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       17,
@@ -61,6 +65,8 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       39 - measurements.latestProject.width / 2,
       -91.5,
       31.5 - measurements.awsArchitectContent.width / 2,
+      31.5 - measurements.k8sDeveloperContent.width / 2,
+      -32,
     ],
   );
   const y = useTransform(
@@ -76,6 +82,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.certificates.index,
       SECTIONS.certificates.awsSolutionsArchitect,
       SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
     [
       150,
@@ -88,6 +95,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       -121,
       -73 - measurements.awsArchitectContent.height / 2,
       -94 - measurements.k8sDeveloperContent.height / 2,
+      -54,
     ],
   );
 
@@ -127,8 +135,10 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
       SECTIONS.index,
       SECTIONS.aboutMe,
       SECTIONS.experience.index,
+      SECTIONS.certificates.kubernetesDeveloper,
+      SECTIONS.footer,
     ],
-    [0, 1, 1, 0.5],
+    [0, 1, 1, 0.5, 0.5, 1],
   );
 
   const pointerEvents = useTransform(scrollYProgress, (value: number) =>

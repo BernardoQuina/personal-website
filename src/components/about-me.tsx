@@ -158,7 +158,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
         href="#about-me"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h3 className="min-w-[7.5rem] text-xl font-medium">
+        <h2 className="min-w-[7.5rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           AboutMe
           <motion.span
@@ -174,7 +174,7 @@ function AboutMeTag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h3>
+        </h2>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"

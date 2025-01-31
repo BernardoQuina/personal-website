@@ -204,7 +204,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
         href="#certificates"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h3 className="min-w-[9rem] text-xl font-medium">
+        <h2 className="min-w-[9rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           Certificates
           <motion.span
@@ -220,7 +220,7 @@ function CertificatesTag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h3>
+        </h2>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -468,7 +468,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
         href="#certificates-aws-solutions-architect"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h5 className="min-w-[15rem] text-xl font-medium">
+        <h3 className="min-w-[15rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           AwsSolutionsArchitect
           <motion.span
@@ -484,7 +484,7 @@ function AwsArchitectTag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h5>
+        </h3>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -578,9 +578,9 @@ function AwsArchitectContent({
               aria-label="Check out my AWS Solutions Architect Associate Certificate on Credly"
               className="flex-row items-center gap-1 pl-0 font-medium xs:pl-0"
             >
-              <h6 className="font-medium">
+              <h4 className="font-medium">
                 AWS Solutions Architect - Associate
-              </h6>
+              </h4>
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <span className="text-left text-muted-foreground xs:text-left">
@@ -838,7 +838,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
         href="#certificates-kubernetes-developer"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h5 className="min-w-[15rem] text-xl font-medium">
+        <h3 className="min-w-[15rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           KubernetesDeveloper
           <motion.span
@@ -854,7 +854,7 @@ function K8sDeveloperTag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h5>
+        </h3>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -955,7 +955,7 @@ function K8sDeveloperContent({
               aria-label="Check out my Kubernetes Application Developer Certificate on Credly"
               className="flex-row items-center gap-1 pl-0 font-medium xs:pl-0"
             >
-              <h6 className="font-medium">Kubernetes Application Developer</h6>
+              <h4 className="font-medium">Kubernetes Application Developer</h4>
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <span className="text-left text-muted-foreground xs:text-left">

@@ -184,7 +184,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
         href="#latest-project"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h3 className="min-w-[9rem] text-xl font-medium">
+        <h2 className="min-w-[9rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           LatestProject
           <motion.span
@@ -200,7 +200,7 @@ function LatestProjectTag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h3>
+        </h2>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -276,7 +276,7 @@ function LatestProjectContent({
           aria-label="Checkout my latest project"
           className="flex-row items-center gap-1 pb-4 pt-2 font-medium"
         >
-          <h6 className="font-medium">AI Video Analysis Demo</h6>
+          <h4 className="font-medium">AI Video Analysis Demo</h4>
           <ArrowUpRight className="h-4 w-4" />
         </a>
         <div className="gap-2 sm:gap-4">

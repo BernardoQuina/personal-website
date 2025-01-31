@@ -201,7 +201,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
         href="#experience"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h3 className="min-w-[8rem] text-xl font-medium">
+        <h2 className="min-w-[8rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           Experience
           <motion.span
@@ -217,7 +217,7 @@ function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h3>
+        </h2>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -449,7 +449,7 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
         href="#experience-may-22-jun-24"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h5 className="min-w-[11rem] text-xl font-medium">
+        <h3 className="min-w-[11rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           May22-Jun24
           <motion.span
@@ -465,7 +465,7 @@ function May22Jun24Tag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h5>
+        </h3>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -531,7 +531,7 @@ function May22Jun24Content({
         style={{ scale, x, y, opacity }}
       >
         <div className="flex-row items-center gap-1 py-4">
-          <h6 className="font-medium">Software Developer ·</h6>
+          <h4 className="font-medium">Software Developer ·</h4>
           <a
             href="https://primeit.pt"
             target="_blank"
@@ -765,7 +765,7 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
         href="#experience-apr-21-may-22"
         style={{ scale, x, y, opacity, pointerEvents }}
       >
-        <h5 className="min-w-[11rem] text-xl font-medium">
+        <h3 className="min-w-[11rem] text-xl font-medium">
           <span className="text-blue-400">{'<'}</span>
           Apr21-May22
           <motion.span
@@ -781,7 +781,7 @@ function Apr21May22Tag({ scrollYProgress, measurements }: AnimationProps) {
           >
             {'>'}
           </motion.span>
-        </h5>
+        </h3>
       </motion.a>
       <motion.div
         className="absolute left-1 top-7 bg-gray-200 dark:bg-gray-800"
@@ -858,7 +858,7 @@ function Apr21May22Content({
         className="w-[calc(100vw-4rem)] max-w-[30rem]"
         style={{ scale, x, y, opacity }}
       >
-        <h6 className="py-4 font-medium">Software Developer · Freelancer</h6>
+        <h4 className="py-4 font-medium">Software Developer · Freelancer</h4>
         <div className="gap-2 sm:gap-4">
           <p className="text-muted-foreground">
             <span className="font-medium text-foreground">Freelance: </span>

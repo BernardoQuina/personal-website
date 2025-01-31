@@ -276,7 +276,7 @@ function LatestProjectContent({
           aria-label="Checkout my latest project"
           className="flex-row items-center gap-1 pb-4 pt-2 font-medium"
         >
-          <h4 className="font-medium">AI Video Analysis Demo</h4>
+          <h3 className="font-medium">AI Video Analysis Demo</h3>
           <ArrowUpRight className="h-4 w-4" />
         </a>
         <div className="gap-2 sm:gap-4">

@@ -558,6 +558,7 @@ function AwsArchitectContent({
             href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Check out my AWS Solutions Architect Associate Certificate on Credly"
             className="self-center"
           >
             <Image
@@ -574,6 +575,7 @@ function AwsArchitectContent({
               href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="Check out my AWS Solutions Architect Associate Certificate on Credly"
               className="flex-row items-center gap-1 pl-0 font-medium xs:pl-0"
             >
               <h6 className="font-medium">
@@ -587,6 +589,7 @@ function AwsArchitectContent({
                 href="https://www.credly.com/org/amazon-web-services"
                 target="_blank"
                 rel="noreferrer noopener"
+                aria-label="Go to AWS page on Credly"
                 className="ml-1 inline border-b border-dashed border-foreground font-medium text-foreground"
               >
                 Amazon Web Services
@@ -932,6 +935,7 @@ function K8sDeveloperContent({
             href="https://www.credly.com/badges/135861ce-7d7b-41a7-8005-3871d9bd4466"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Check out my Kubernetes Application Developer Certificate on Credly"
             className="self-center"
           >
             <Image
@@ -948,6 +952,7 @@ function K8sDeveloperContent({
               href="https://www.credly.com/badges/135861ce-7d7b-41a7-8005-3871d9bd4466"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="Check out my Kubernetes Application Developer Certificate on Credly"
               className="flex-row items-center gap-1 pl-0 font-medium xs:pl-0"
             >
               <h6 className="font-medium">Kubernetes Application Developer</h6>
@@ -959,6 +964,7 @@ function K8sDeveloperContent({
                 href="https://www.credly.com/organizations/the-linux-foundation/badges"
                 target="_blank"
                 rel="noreferrer noopener"
+                aria-label="Go to The Linux Foundation page on Credly"
                 className="ml-1 inline border-b border-dashed border-foreground font-medium text-foreground"
               >
                 The Linux Foundation

@@ -17,6 +17,7 @@ export function Header() {
               href="https://www.linkedin.com/in/bernardo-quina/"
               target="_blank"
               rel="noreferrer"
+              aria-label="Get in touch via my LinkedIn profile"
               className="h-fit w-fit"
             >
               <div className="relative">
@@ -35,6 +36,7 @@ export function Header() {
               href="https://www.linkedin.com/in/bernardo-quina/"
               target="_blank"
               rel="noreferrer"
+              aria-label="Get in touch via my LinkedIn profile"
               className="h-fit w-fit"
             >
               <div className="relative">

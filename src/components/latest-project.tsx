@@ -273,6 +273,7 @@ function LatestProjectContent({
           href="https://video-analysis.bernardoquina.com"
           target="_blank"
           rel="noreferrer noopener"
+          aria-label="Checkout my latest project"
           className="flex-row items-center gap-1 pb-4 pt-2 font-medium"
         >
           <h6 className="font-medium">AI Video Analysis Demo</h6>
@@ -283,6 +284,7 @@ function LatestProjectContent({
             href="https://video-analysis.bernardoquina.com"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Checkout my latest project"
             className="ml-[-1px]"
           >
             <Image

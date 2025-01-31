@@ -31,6 +31,7 @@ export function Footer() {
               <a
                 href="https://www.github.com/BernardoQuina/"
                 target="_blank"
+                aria-label="Go to my GitHub profile"
                 rel="noreferrer"
               >
                 <Github className="h-5 w-5" />
@@ -39,6 +40,7 @@ export function Footer() {
                 className="h-fit w-fit"
                 href="https://www.linkedin.com/in/bernardo-quina/"
                 target="_blank"
+                aria-label="Go to my LinkedIn profile"
                 rel="noreferrer"
               >
                 <Linkedin className="h-5 w-5" />
@@ -46,6 +48,7 @@ export function Footer() {
               <a
                 className="h-fit w-fit"
                 href="https://www.x.com/bernardoquina/"
+                aria-label="Go to my X (Twitter) profile"
                 target="_blank"
                 rel="noreferrer"
               >

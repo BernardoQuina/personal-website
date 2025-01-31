@@ -239,6 +239,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
             href="https://primeit.pt"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Visit PrimeIT website"
             className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
           >
             PrimeIT
@@ -250,6 +251,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
             href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Check out my AWS Solutions Architect Associate Certificate on Credly"
             className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
           >
             AWS Solutions Architect
@@ -259,6 +261,7 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
             href="https://www.credly.com/badges/135861ce-7d7b-41a7-8005-3871d9bd4466"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Check out my Kubernetes Application Developer Certificate on Credly"
             className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
           >
             Kubernetes Developer

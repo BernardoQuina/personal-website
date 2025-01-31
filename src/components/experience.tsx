@@ -536,6 +536,7 @@ function May22Jun24Content({
             href="https://primeit.pt"
             target="_blank"
             rel="noreferrer noopener"
+            aria-label="Visit PrimeIT website"
             className="flex-row items-center gap-1 font-medium"
           >
             <span> PrimeIT</span>

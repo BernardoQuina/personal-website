@@ -1,40 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Website
 
-## Getting Started
+Welcome to my personal website repository! This project showcases my portfolio as a full-stack developer, built with modern web technologies and deployed on AWS infrastructure using Infrastructure as Code principles.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This website serves as my professional portfolio, highlighting my experience as a full-stack developer with a focus on cloud architecture and TypeScript development. The site features sections for my background, work experience, latest projects, and technical certifications.
+
+## Tech Stack
+
+- **Frontend Framework:** Next.js with TypeScript
+- **Styling:** Tailwind CSS
+- **Infrastructure:** AWS (S3, CloudFront, Route53)
+- **IaC:** AWS CloudFormation
+- **CI/CD:** GitHub Actions
+
+## Features
+
+- Responsive design with dark/light mode support
+- Scroll animated with (Framer) Motion
+- Static site generation for optimal performance
+- Infrastructure as Code deployment
+- Automated CI/CD pipeline
+
+## Project Structure
+
+```
+bernardoquina-personal-website/
+├── src/                      # Source code
+│   ├── components/           # React components
+│   ├── pages/               # Next.js pages
+│   ├── hooks/               # Custom React hooks
+│   ├── styles/              # Global styles
+│   └── utils/               # Utility functions
+├── infrastructure/          # AWS CloudFormation templates
+├── public/                  # Static assets
+└── .github/workflows/       # GitHub Actions workflows
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+   ```bash
+   git clone https://github.com/yourusername/bernardoquina-personal-website.git
+   cd bernardoquina-personal-website
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   npm ci
+   ```
 
-## Learn More
+3. Copy the environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   cp .env.example .env.local
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Infrastructure Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project uses AWS CloudFormation to provision and manage the infrastructure. The stack creates:
+
+- S3 bucket for static website hosting
+- CloudFront distribution for content delivery
+- Route53 DNS records
+- CloudFront Functions for SPA routing
+
+### Prerequisites
+
+- AWS account with appropriate permissions
+- Domain name with Route53 hosted zone
+- ACM certificate in us-east-1 region (for CloudFront)
+- Create OICD provider for GitHub actions and store the role arn as a secret ([follow this step-by-step guide](https://medium.com/israeli-tech-radar/openid-connect-and-github-actions-to-authenticate-with-amazon-web-services-9a66b3b88e92))
+
+### Deployment
+
+The website is automatically updated through GitHub Actions when changes are pushed to the main branch. The workflow:
+
+1. Builds the Next.js application
+2. Authenticates with AWS using OIDC
+3. Syncs built files to S3
+4. Invalidates CloudFront cache
+
+For infrastructure initial deployment and updates, use the provided script:
+
+```bash
+cd infrastructure
+./stack-deploy.sh
+```
+
+## Environment Variables
+
+Create a `.env.local` file with the following variables:
+
+```env
+# AWS Deployment Variables
+S3_BUCKET_NAME=          # Your S3 bucket name
+DOMAIN_NAME=            # Your custom domain
+HOSTED_ZONE_ID=         # Route53 hosted zone ID
+CERTIFICATE_ARN=        # ACM certificate ARN (us-east-1)
+```

@@ -224,29 +224,17 @@ function AboutMeContent({ scrollYProgress, contentRef }: Props) {
         style={{ scale, x, y, opacity }}
       >
         <p className="text-muted-foreground">
-          I&apos;m all about building robust, type-safe systems where cloud
-          services and applications integrate seamlessly. From crafting
-          <span className="font-medium text-foreground"> Node.js </span>
-          APIs and<span className="font-medium text-foreground"> React </span>
-          frontends to architecting{' '}
-          <span className="font-medium text-foreground"> AWS </span>
-          infrastructure, I thrive on creating scalable solutions that are
-          reliable and maintainable.
-        </p>
-        <p className="text-muted-foreground">
-          After two years as a full-stack developer at
-          <a
-            href="https://primeit.pt"
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Visit PrimeIT website"
-            className="mx-1 inline border-b border-dashed border-foreground font-medium text-foreground"
-          >
-            PrimeIT
-          </a>
-          where I worked across client projects spanning the entire stack, I
-          took some time to travel and strengthen my cloud architecture and
-          algorithmic skills. My expertise is backed by
+          I&apos;m a Full Stack Developer with 3 years of experience
+          specializing in
+          <span className="font-medium text-foreground"> TypeScript </span>and
+          cloud architecture. Proven track record delivering end to end
+          solutions with{' '}
+          <span className="font-medium text-foreground"> React</span>,
+          <span className="font-medium text-foreground"> Node.js </span> and{' '}
+          <span className="font-medium text-foreground">
+            Amazon Web Services
+          </span>{' '}
+          technologies, backed by
           <a
             href="https://www.credly.com/badges/b86e532b-05a8-4827-9881-87cfe809cdd8"
             target="_blank"

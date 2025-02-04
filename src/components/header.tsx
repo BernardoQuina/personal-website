@@ -14,7 +14,7 @@ export function Header() {
             asChild
           >
             <a
-              href="https://www.linkedin.com/in/bernardo-quina/"
+              href="https://www.linkedin.com/in/BernardoQuina/"
               target="_blank"
               rel="noreferrer"
               aria-label="Get in touch via my LinkedIn profile"
@@ -33,7 +33,7 @@ export function Header() {
             asChild
           >
             <a
-              href="https://www.linkedin.com/in/bernardo-quina/"
+              href="https://www.linkedin.com/in/BernardoQuina/"
               target="_blank"
               rel="noreferrer"
               aria-label="Get in touch via my LinkedIn profile"

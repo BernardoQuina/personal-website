@@ -38,7 +38,7 @@ export function Footer() {
               </a>
               <a
                 className="h-fit w-fit"
-                href="https://www.linkedin.com/in/bernardo-quina/"
+                href="https://www.linkedin.com/in/BernardoQuina/"
                 target="_blank"
                 aria-label="Go to my LinkedIn profile"
                 rel="noreferrer"

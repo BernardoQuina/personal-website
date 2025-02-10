@@ -40,7 +40,7 @@ export function Experience({
 
 function ExperienceTag({ scrollYProgress, measurements }: AnimationProps) {
   // Because of the dynamic viewport on mobile, animations that go to the end
-  // of the scrollYProgress (1) look clunky, so we'll use a lower value there.
+  // of the scrollYProgress look clunky, so we'll use a lower value there.
   // Also, the end the footer is quite tall on small screens so we'll offset all
   // elements towards the top.
   const footerSection = measurements.isMobile ? 0.97 : SECTIONS.footer;
